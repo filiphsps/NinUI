@@ -1,4 +1,17 @@
+/*
+
+				3DS GUI (WIP NAME)
+			 © Filiph Sandström 2015
+
+		TODO(In this file):
+		* Alot
+		CONTRIBUTORS(In this file):
+		* Filiph Sandström (filfat)
+
+		   SEE "LICENSE" FOR THE LICENSE
+*/
 #include "3DS_UI.h"
+
 /* Init & Exit Related */
 int uiInit(){
 	return 0;
