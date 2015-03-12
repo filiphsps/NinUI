@@ -124,12 +124,12 @@ void setElementCallback(uiElement element, void (*callback)(uiElement element)) 
 /* ----------------Misc---------------- */
 RGB convertHexToRGB(int hexValue) {
 	//Thx Stackoverflow
-	RGB rgbColor;
-	rgbColor.R = ((hexValue >> 16) & 0xFF) / 255.0;
-	rgbColor.G = ((hexValue >> 8) & 0xFF) / 255.0;
-	rgbColor.B = ((hexValue)& 0xFF) / 255.0;
+	RGB color;
+	color.R = ((hexValue >> 16) & 0xFF) / 255.0;
+	color.G = ((hexValue >> 8) & 0xFF) / 255.0;
+	color.B = ((hexValue)& 0xFF) / 255.0;
 
-	return rgbColor;
+	return color;
 }
 std::string errorCodeToMsg(Result error) {
 	//TODO
