@@ -4,6 +4,8 @@
 #include <string.h>
 #include <3ds.h>
 #include "3DS_UI_DRAW.h"
+#include "font.h"
+#include "ascii64.h"
 
 void clearScreen(u8* screen,gfxScreen_t screenPos)
 {
@@ -24,12 +26,70 @@ void clearScreen(u8* screen,gfxScreen_t screenPos)
 
 void drawPixel(int x, int y, char r, char g, char b, u8* screen)
 {
-	int height=240;
-	
-	u32 v=(height-y+x*height)*3;
-	screen[v]=b;
-	screen[v+1]=g;
-	screen[v+2]=r;
+	int height = 240;
+
+	u32 v = (height - y + x*height) * 3;
+	screen[v] = b;
+	screen[v + 1] = g;
+	screen[v + 2] = r;
+}
+void drawString(u8* fb, font_s* f, char* str, s16 x, s16 y, u16 w, u16 h)
+{
+	if (!f || !fb || !str)return;
+	int k; int dx = 0, dy = 0;
+	int length = strlen(str);
+	for (k = 0; k<length; k++)
+	{
+		dx += drawCharacter(fb, f, str[k], x + dx, y + dy, w, h);
+		if (str[k] == '\n') { dx = 0; dy -= f->height; }
+	}
+}
+
+
+void drawChar(char letter, int x, int y, char r, char g, char b, u8* screen)
+{
+	int i, k;
+	unsigned char mask;
+	unsigned char l;
+
+	for (i = 0; i < 8; i++) {
+		mask = 0b10000000;
+		l = asciiData[(int)letter][i];
+		for (k = 0; k < 8; k++) {
+			if ((mask >> k) & l) {
+				drawPixel(k + x, i + y, r, g, b, screen);
+			}
+		}
+	}
+}
+
+void drawString(char* word, int x, int y, char r, char g, char b, u8* screen, gfxScreen_t screenPos)
+{
+	int tmp_x = x;
+	int i;
+	int line = 0;
+
+	int width;
+
+	switch (screenPos) {
+	case GFX_BOTTOM:
+		width = BOTTOM_WIDTH;
+		break;
+	default:
+		width = TOP_WIDTH;
+		break;
+	}
+
+	for (i = 0; i < (signed)strlen(word); i++) {
+
+		if (tmp_x + 8 > width) {
+			line++;
+			tmp_x = x;
+		}
+		drawChar(word[i], tmp_x, y + (line * 8), r, g, b, screen);
+
+		tmp_x = tmp_x + 8;
+	}
 }
 
 /*
@@ -320,4 +380,46 @@ void gfxFadeScreen(gfxScreen_t screen, gfx3dSide_t side, u32 f)
 		*fbAdr=(*fbAdr*f)>>8;fbAdr++;
 		*fbAdr=(*fbAdr*f)>>8;fbAdr++;
 	}
+}
+int drawCharacter(u8* fb, font_s* f, char c, s16 x, s16 y, u16 w, u16 h)
+{
+	charDesc_s* cd = &f->desc[(int)c];
+	if (!cd->data)return 0;
+	x += cd->xo; y += f->height - cd->yo - cd->h;
+	if (x<0 || x + cd->w >= w || y<-cd->h || y >= h + cd->h)return 0;
+	u8* charData = cd->data;
+	int i, j;
+	s16 cy = y, ch = cd->h, cyo = 0;
+	if (y<0) { cy = 0; cyo = -y; ch = cd->h - cyo; }
+	else if (y + ch>h)ch = h - y;
+	fb += (x*h + cy) * 3;
+	const u8 r = f->color[0], g = f->color[1], b = f->color[2];
+	for (i = 0; i<cd->w; i++)
+	{
+		charData += cyo;
+		for (j = 0; j<ch; j++)
+		{
+			u8 v = *(charData++);
+			if (v)
+			{
+				fb[0] = (fb[0] * (0xFF - v) + (b*v)) >> 8;
+				fb[1] = (fb[1] * (0xFF - v) + (g*v)) >> 8;
+				fb[2] = (fb[2] * (0xFF - v) + (r*v)) >> 8;
+			}
+			fb += 3;
+		}
+		charData += (cd->h - (cyo + ch));
+		fb += (h - ch) * 3;
+	}
+	return cd->xa;
+}
+void gfxDrawText(gfxScreen_t screen, gfx3dSide_t side, font_s* f, char* str, s16 x, s16 y)
+{
+	if (!str)return;
+	if (!f)f = &fontDefault;
+
+	u16 fbWidth, fbHeight;
+	u8* fbAdr = gfxGetFramebuffer(screen, side, &fbWidth, &fbHeight);
+
+	drawString(fbAdr, f, str, y, x, fbHeight, fbWidth);
 }

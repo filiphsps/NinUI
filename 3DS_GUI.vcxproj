@@ -11,11 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\ascii64.h" />
+    <ClInclude Include="include\font.h" />
     <ClInclude Include="include\3DS_UI.h" />
     <ClInclude Include="include\3DS_UI_DRAW.h" />
     <ClInclude Include="include\defines.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\font.c" />
+    <ClCompile Include="source\font_roboto.cpp" />
+    <ClCompile Include="source\font_roboto_small.cpp" />
     <ClCompile Include="source\3DS_UI.cpp" />
     <ClCompile Include="source\3DS_UI_DRAW.cpp" />
   </ItemGroup>
@@ -52,9 +57,10 @@
     <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>make clean all</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <IncludePath>$(VC_IncludePath);$(CTRULIB)\include;include;$(DEVKITARM)\arm-none-eabi\include;$(CTRULIB)\include</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(CTRULIB)\include;include;$(DEVKITARM)\arm-none-eabi\include;$(CTRULIB)\include;$(VC_SourcePath)\fonts;fonts</IncludePath>
     <NMakeOutput>
     </NMakeOutput>
+    <SourcePath>$(VC_SourcePath);$(VC_SourcePath)\fonts;fonts</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>make</NMakeBuildCommandLine>
