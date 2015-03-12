@@ -97,7 +97,7 @@ void setWindowFB(uiWindow &window) {
 	}
 }
 void setWindowMode(bool isTopScreen, bool enable3D, uiWindow &window) {
-	window.settings.is3DEnabled = enable3D;
+	window.settings.is3DEnabled = isTopScreen ? enable3D : false;
 	window.settings.isTopScreen = isTopScreen;
 }
 

@@ -10,13 +10,13 @@ int main()
 	gfxInitDefault();
 	fsInit();
 	sdmcInit();
-	//gfxSet3D(true);
+	gfxSet3D(true);
 	uiInit();
 	gspWaitForVBlank();
 	
 	uiWindow windowTop =  createWindow();
 	uiWindow windowBottom =  createWindow();
-	setWindowMode(true, false, windowTop);
+	setWindowMode(true, true, windowTop);
 	setWindowMode(false, false, windowBottom);
 	while (aptMainLoop())
 	{
