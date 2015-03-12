@@ -25,7 +25,8 @@ int main()
 		gfxFlushBuffers();
 		gfxSwapBuffers();
 	}
-
+	
+	uiExit();
 	gfxExit();
 	return 0;
 }
