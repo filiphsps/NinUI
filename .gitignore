@@ -3,6 +3,9 @@
 *.lo
 *.o
 *.obj
+*.lst
+*.map
+*.d
 
 # Precompiled Headers
 *.gch
