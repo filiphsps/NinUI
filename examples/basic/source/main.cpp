@@ -14,6 +14,9 @@ int main() {
 	uiWindow windowBottom =  createWindow();
 	setWindowMode(true, true, windowTop);
 	setWindowMode(false, false, windowBottom);
+
+	windowTop.navbar.header = "Example 1";
+
 	while (aptMainLoop())
 	{
 		hidScanInput();

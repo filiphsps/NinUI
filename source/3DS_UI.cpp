@@ -50,10 +50,10 @@ void renderWindow(uiWindow &window) {
 		if (window.settings.isTopScreen) {
 			//Lets draw the statusbar
 			drawStatusbar(window.framebuf1, window);
-			drawNavbar(window.framebuf1, window);
+			drawNavbar(window, true);
 			if (window.settings.is3DEnabled) {
 				drawStatusbar(window.framebuf2, window);
-				drawNavbar(window.framebuf2, window);
+				drawNavbar(window, false);
 			}
 		}
 		if (window.settings.is3DEnabled)
@@ -72,11 +72,23 @@ void drawStatusbar(u8* &fb, uiWindow &window) {
 
 	//TODO: clock, appname
 }
-void drawNavbar(u8* &fb, uiWindow &window){
-	drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
-			window.navbar.navbarColor.G, window.navbar.navbarColor.B, fb);
+void drawNavbar(uiWindow &window, bool isLeft){
+	if (isLeft) {
+		drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
+			window.navbar.navbarColor.G, window.navbar.navbarColor.B, window.framebuf1);
 
-	//TODO: header
+		//TODO: header
+
+		gfxDrawText(GFX_TOP, GFX_LEFT, &robootoWhite, (char*)window.navbar.header.c_str(), 240 - (((NAVBAR_H / 2) + robootoWhite.height)), 13);
+	}
+	else{
+		drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
+			window.navbar.navbarColor.G, window.navbar.navbarColor.B, window.framebuf2);
+
+		//TODO: header
+
+		gfxDrawText(GFX_TOP, GFX_RIGHT, &robootoWhite, (char*)window.navbar.header.c_str(), 240 - (((NAVBAR_H / 2) + robootoWhite.height)), 13);
+	}
 }
 /* ----------------Window Related---------------- */
 uiWindow createWindow() {

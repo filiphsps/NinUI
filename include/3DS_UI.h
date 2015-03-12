@@ -62,7 +62,7 @@ Result uiExit();										//Prepares 3DS_GUI for app termination
 void renderWindow(uiWindow &window);					//Render the passed uiWindow
 void drawElement(uiElement &element);					//Render the passed uiElement
 void drawStatusbar(u8* &fb, uiWindow &window);
-void drawNavbar(u8* &fb, uiWindow &window);	
+void drawNavbar(uiWindow &window, bool isLeft);
 
 //Window Related
 uiWindow createWindow();								//Creates an empty window
