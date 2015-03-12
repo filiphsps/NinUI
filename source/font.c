@@ -1,34 +1,7 @@
 #include <3ds.h>
 #include "font.h"
-#include "font_bin.h" 
-font_s fontDefault =
-{
-	font1Data,
-	font1Desc,
-	14,
-	(u8[]){0xFF,0xFF,0xFF}
-};
 
-font_s fontWhite =
-{
-	font1Data,
-	font1Desc,
-	14,
-	(u8[]){0xFF,0xFF,0xFF}
-};
-
-font_s fontBlack =
-{
-	font1Data,
-	font1Desc,
-	14,
-	(u8[]) {
-		0x00,0x00,0x00
-	}
-};
-
-
-font_s fontBlackHeader =
+font_s robootoBlack =
 {
 	RobotoData,
 	RobotoDesc,
@@ -36,7 +9,7 @@ font_s fontBlackHeader =
 	(u8[]){0x00,0x00,0x00}
 };
 
-font_s fontBlackSubHeader =
+font_s robootoBlackSmall =
 {
 	robotoSmallData,
 	robotoSmallDesc,
@@ -44,7 +17,7 @@ font_s fontBlackSubHeader =
 	(u8[]){0x40,0x40,0x40}
 };
 
-font_s fontWhiteHeader =
+font_s robootoWhite =
 {
 	RobotoData,
 	RobotoDesc,

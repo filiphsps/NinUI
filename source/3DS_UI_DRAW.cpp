@@ -416,7 +416,7 @@ int drawCharacter(u8* fb, font_s* f, char c, s16 x, s16 y, u16 w, u16 h)
 void gfxDrawText(gfxScreen_t screen, gfx3dSide_t side, font_s* f, char* str, s16 x, s16 y)
 {
 	if (!str)return;
-	if (!f)f = &fontDefault;
+	if (!f)f = &robootoBlack;
 
 	u16 fbWidth, fbHeight;
 	u8* fbAdr = gfxGetFramebuffer(screen, side, &fbWidth, &fbHeight);

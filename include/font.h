@@ -9,15 +9,10 @@ typedef struct
 	u8 color[3];
 }font_s;
 
-extern u8 font1Data[];
 extern u8 RobotoData[];
 extern u8 robotoSmallData[];
-extern charDesc_s font1Desc[];
 extern charDesc_s RobotoDesc[];
 extern charDesc_s robotoSmallDesc[];
-extern font_s fontDefault;
-extern font_s fontBlack;
-extern font_s fontWhite;
-extern font_s fontBlackHeader;
-extern font_s fontBlackSubHeader;
-extern font_s fontWhiteHeader;
+extern font_s robootoBlack;
+extern font_s robootoBlackSmall;
+extern font_s robootoWhite;
