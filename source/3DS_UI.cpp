@@ -97,7 +97,7 @@ void setWindowFB(uiWindow &window) {
 	}
 }
 void setWindowMode(bool isTopScreen, bool enable3D, uiWindow &window) {
-	window.settings.is3DEnabled = isTopScreen ? enable3D : false;
+	window.settings.is3DEnabled = isTopScreen ? enable3D : false; //Lets make sure we cant set 3D to true on the bottom screen
 	window.settings.isTopScreen = isTopScreen;
 }
 
@@ -118,7 +118,7 @@ uiElement createElement(u8 x, u8 y) {
 	element.Y = y;
 	return element;
 }
-void setElementCallback(uiElement element, void (*callback)(void)) {
+void setElementCallback(uiElement element, void (*callback)(uiElement element)) {
 	element.callback = callback;
 }
 /* ----------------Misc---------------- */
