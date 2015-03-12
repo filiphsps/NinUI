@@ -12,10 +12,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\3DS_UI.h" />
+    <ClInclude Include="include\3DS_UI_DRAW.h" />
     <ClInclude Include="include\defines.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\3DS_UI.cpp" />
+    <ClCompile Include="source\3DS_UI_DRAW.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{460AA8E1-5F21-4EFB-9A9B-19B606F58E4C}</ProjectGuid>
