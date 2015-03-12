@@ -47,9 +47,10 @@ struct uiWindow {
 /* ----------------Functions---------------- */
 //Init
 Result uiInit();										//Initializes 3DS_GUI
-Result uiExit();
+Result uiExit();										//Prepares 3DS_GUI for app termination
 
 //Rendering Related
+void renderWindow(uiWindow &window);					//Render the passed uiWindow
 
 //Window Related
 uiWindow createWindow();								//Creates an empty window

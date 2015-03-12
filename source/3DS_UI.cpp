@@ -15,16 +15,18 @@
 
 /* ----------------Init & Exit Related---------------- */
 Result uiInit(){
-	/* TODO */
+	//TODO
 	return 0;
 }
 Result uiExit(){
-	/* TODO */
+	//TODO
 	return 0;
 }
 
 /* ----------------Rendering Related---------------- */
-
+void renderWindow(uiWindow &window) {
+	//TODO: Figure out the GPU
+}
 
 /* ----------------Window Related---------------- */
 uiWindow createWindow() {
@@ -65,6 +67,6 @@ RGB convertHexToRGB(int hexValue) {
 	return rgbColor;
 }
 std::string errorCodeToMsg(Result error) {
-	/* TODO */
+	//TODO
 	return "";
 }
