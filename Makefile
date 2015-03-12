@@ -92,6 +92,11 @@ $(BUILD): lib
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
+dist-bin: all
+	@tar -cjf 3DS_GUI.tar.bz2 include lib
+install: dist-bin
+	mkdir -p $(DEVKITPRO)/portlibs/3ds
+	bzip2 -cd 3DS_GUI.tar.bz2 | tar -x -C $(DEVKITPRO)/portlibs/3ds
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...

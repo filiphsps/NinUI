@@ -39,6 +39,8 @@ obj/*
 *.sdf
 *.opensdf
 Thumbs.db
+*.bz2
+*.tar
 
 # Visual Studio
 #*.opensdf
