@@ -74,16 +74,16 @@ void drawStatusbar(u8* &fb, uiWindow &window) {
 }
 void drawNavbar(uiWindow &window, bool isLeft){
 	if (isLeft) {
-		drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
+		drawFillRect(0, STATUSBAR_H, SCREEN_TOP_WIDTH -1, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
 			window.navbar.navbarColor.G, window.navbar.navbarColor.B, window.framebuf1);
 
-		gfxDrawText(GFX_TOP, GFX_LEFT, &robootoWhite, (char*)window.navbar.header.c_str(), 240 - (((NAVBAR_H / 2) + robootoWhite.height)), 13);
+		gfxDrawText(GFX_TOP, GFX_LEFT, &robootoWhite, (char*)window.navbar.header.c_str(), SCREEN_TOP_HEIGHT - (((NAVBAR_H / 2) + robootoWhite.height)), 10);
 	}
 	else{
-		drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
+		drawFillRect(0, STATUSBAR_H, SCREEN_TOP_WIDTH -1, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
 			window.navbar.navbarColor.G, window.navbar.navbarColor.B, window.framebuf2);
 
-		gfxDrawText(GFX_TOP, GFX_RIGHT, &robootoWhite, (char*)window.navbar.header.c_str(), 240 - (((NAVBAR_H / 2) + robootoWhite.height)), 13);
+		gfxDrawText(GFX_TOP, GFX_RIGHT, &robootoWhite, (char*)window.navbar.header.c_str(), SCREEN_TOP_HEIGHT - (((NAVBAR_H / 2) + robootoWhite.height)), 10);
 	}
 }
 /* ----------------Window Related---------------- */

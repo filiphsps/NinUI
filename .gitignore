@@ -46,9 +46,9 @@ Thumbs.db
 *.tar
 
 # Visual Studio
-#*.opensdf
-#*.filters
-#*.user
-#*.vcxproj
-#*.sln
-#*.suo
+*.opensdf
+*.filters
+*.user
+*.vcxproj
+*.sln
+*.suo
