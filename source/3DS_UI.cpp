@@ -77,15 +77,11 @@ void drawNavbar(uiWindow &window, bool isLeft){
 		drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
 			window.navbar.navbarColor.G, window.navbar.navbarColor.B, window.framebuf1);
 
-		//TODO: header
-
 		gfxDrawText(GFX_TOP, GFX_LEFT, &robootoWhite, (char*)window.navbar.header.c_str(), 240 - (((NAVBAR_H / 2) + robootoWhite.height)), 13);
 	}
 	else{
 		drawFillRect(0, STATUSBAR_H, 399, NAVBAR_H + STATUSBAR_H, window.navbar.navbarColor.R,
 			window.navbar.navbarColor.G, window.navbar.navbarColor.B, window.framebuf2);
-
-		//TODO: header
 
 		gfxDrawText(GFX_TOP, GFX_RIGHT, &robootoWhite, (char*)window.navbar.header.c_str(), 240 - (((NAVBAR_H / 2) + robootoWhite.height)), 13);
 	}

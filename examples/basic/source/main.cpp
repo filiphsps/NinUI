@@ -1,4 +1,3 @@
-#include <string.h>
 #include <3ds.h>
 #include <3DS_UI.h>
 

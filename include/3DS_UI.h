@@ -50,7 +50,7 @@ struct uiWindow {
 	std::vector<uiElement> elements;					//List of elements
 	uiWindowSettings settings;							//Settings
 
-	uiNavbar navbar;									//
+	uiNavbar navbar;									//Navbar
 };
 
 /* ----------------Functions---------------- */
