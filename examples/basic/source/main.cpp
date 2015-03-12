@@ -2,17 +2,13 @@
 #include <3ds.h>
 #include <3DS_UI.h>
 
-int main()
-{
+int main() {
 	srvInit();
 	aptInit();
 	hidInit(NULL);
 	gfxInitDefault();
-	fsInit();
-	sdmcInit();
 	gfxSet3D(true);
-	uiInit();
-	gspWaitForVBlank();
+	uiInit(); //Init
 	
 	uiWindow windowTop =  createWindow();
 	uiWindow windowBottom =  createWindow();
@@ -25,7 +21,7 @@ int main()
 		u32 kDown = hidKeysDown();
 		if (kDown & KEY_START)
 			break; // break in order to return to hbmenu
-		
+
 		renderWindow(windowTop);
 		renderWindow(windowBottom);
 	}

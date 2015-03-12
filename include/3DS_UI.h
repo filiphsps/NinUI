@@ -32,7 +32,7 @@ struct uiElementSettings {
 struct uiElement {
 	u8 type = 0;										//See "types.txt"
 	u8 X = 0, Y = 0;									//Cordinates at where the element should be rendered
-	void(*callback)(uiElement element);							//If "isInteractable" is set to true so will this function get called when the element is touched
+	void(*callback)(uiElement);							//If "isInteractable" is set to true so will this function get called when the element is touched
 	uiElementSettings settings;							//Settings
 };
 struct uiWindowSettings {

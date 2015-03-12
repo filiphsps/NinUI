@@ -63,7 +63,8 @@ void renderWindow(uiWindow &window) {
 	}
 }
 void drawElement(uiElement &element) {
-	//ToDo
+	//TODO
+
 }
 void drawStatusbar(u8* &fb, uiWindow &window) {
 	drawFillRect(0, 1, 399, STATUSBAR_H,window.settings.statusbarColor.R, 
