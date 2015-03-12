@@ -10,20 +10,25 @@
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
+#include <iostream>
 #include "3DS_UI.h"
 
-/* Init & Exit Related */
-int uiInit(){
+/* ----------------Init & Exit Related---------------- */
+Result uiInit(){
+	/* TODO */
 	return 0;
 }
-int uiExit(){
+Result uiExit(){
+	/* TODO */
 	return 0;
 }
 
-/* Window Related */
+/* ----------------Rendering Related---------------- */
+
+
+/* ----------------Window Related---------------- */
 uiWindow createWindow() {
-	uiWindow window;
-	return window;
+	return uiWindow();
 }
 void clearWindow(uiWindow &window) {
 	window = uiWindow();
@@ -36,10 +41,9 @@ void setNavbarColor(uiWindow &window, RGB navbarColor) {
 	window.settings.navbarColor = navbarColor;
 }
 
-/* Elements */
+/* ----------------Elements---------------- */
 uiElement createElement() {
-	uiElement element;
-	return element;
+	return uiElement();
 }
 uiElement createElement(short x, short y) {
 	uiElement element;
@@ -47,13 +51,20 @@ uiElement createElement(short x, short y) {
 	element.Y = y;
 	return element;
 }
-
-/* Misc */
+void setElementCallback(uiElement element, void (*callback)(void)) {
+	element.callback = callback;
+}
+/* ----------------Misc---------------- */
 RGB convertHexToRGB(int hexValue) {
+	//Thx Stackoverflow
 	RGB rgbColor;
 	rgbColor.R = ((hexValue >> 16) & 0xFF) / 255.0;
 	rgbColor.G = ((hexValue >> 8) & 0xFF) / 255.0;
 	rgbColor.B = ((hexValue)& 0xFF) / 255.0;
 
 	return rgbColor;
+}
+std::string errorCodeToMsg(Result error) {
+	/* TODO */
+	return "";
 }
