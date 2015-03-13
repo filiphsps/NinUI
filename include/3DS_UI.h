@@ -31,8 +31,8 @@ struct uiElementSettings {
 	bool isEnabled = true;
 };
 struct uiElement {
-	u8 type = 0;										//See "types.txt", -1 = Custom
-
+	s8 type = 0;										//See "types.txt", -1 = Custom
+	
 	u16 X = 0, Y = 0;									//Cordinates at where the element should be rendered
 	void(*callback)(uiElement);							//If "isInteractable" is set to true so will this function get called when the element is touched
 	uiElementSettings settings;							//Settings
