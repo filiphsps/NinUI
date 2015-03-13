@@ -16,6 +16,7 @@
 #include <3ds.h>
 #include <vector>
 #include "defines.h"
+#include "3DS_UI_DRAW.h"
 
 /* ----------------Declarations---------------- */
 struct RGB {
@@ -30,8 +31,9 @@ struct uiElementSettings {
 	bool isEnabled = true;
 };
 struct uiElement {
-	u8 type = 0;										//See "types.txt"
-	u8 X = 0, Y = 0;									//Cordinates at where the element should be rendered
+	u8 type = 0;										//See "types.txt", -1 = Custom
+
+	u16 X = 0, Y = 0;									//Cordinates at where the element should be rendered
 	void(*callback)(uiElement);							//If "isInteractable" is set to true so will this function get called when the element is touched
 	uiElementSettings settings;							//Settings
 };
@@ -67,15 +69,25 @@ void drawNavbar(uiWindow &window, bool isLeft);
 //Window Related
 uiWindow createWindow();								//Creates an empty window
 void clearWindow(uiWindow &window);						//Resets all the window values to default
-void setAppbarColor(uiWindow &window, RGB appbarColor);	//Set appbar colour
-void setNavbarColor(uiWindow &window, RGB navbarColor);	//Set navbar colour
-void setWindowFB(uiWindow &window);
-void setWindowMode(bool isTopScreen,
+void setAppbarColor(uiWindow &window, RGB appbarColor);	//Sets the appbar colour
+void setNavbarColor(uiWindow &window, RGB navbarColor);	//Sets the navbar colour
+void setWindowFB(uiWindow &window);						//Sets the framebuffers
+void setWindowMode(bool isTopScreen,					//Sets the window mode
 	bool enable3D, uiWindow &window);
 
 //Elements
 uiElement createElement();								//Creates an empty element
-uiElement createElement(u8 x, u8 y);					//Creates an element with X & Y set at creation
+uiElement createElement(u16 x, u16 y);					//Creates an element with X & Y set at creation
+void setElementCallback(uiElement &element,				//Configures the callback for the element
+	void(*callback)(uiElement element));
+void setCustomElement(uiElement &element,				//Configures a custom element
+	u8* drawnElement, u16 width, u16 height);
+
+void drawTextblock(uiElement &element,
+	gfxScreen_t screen, gfx3dSide_t side, font_s font, std::string text);
+void drawTextbox(uiElement &element,
+	gfxScreen_t screen, gfx3dSide_t side, bool acivated,
+	RGB border, RGB background, font_s font, std::string placeholder);
 
 //Misc
 RGB convertHexToRGB(int hexValue);						//Converts the HEX colour format to RGB

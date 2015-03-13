@@ -5,6 +5,7 @@
 
 		TODO(In this file):
 		* Alot
+		* Unify cord system for everything
 		CONTRIBUTORS(In this file):
 		* Filiph Sandström (filfat)
 
@@ -121,14 +122,18 @@ void setNavbarColor(uiWindow &window, RGB navbarColor) {
 uiElement createElement() {
 	return uiElement();
 }
-uiElement createElement(u8 x, u8 y) {
+uiElement createElement(u16 x, u16 y) {
 	uiElement element;
 	element.X = x;
 	element.Y = y;
 	return element;
 }
-void setElementCallback(uiElement element, void (*callback)(uiElement element)) {
+void setElementCallback(uiElement &element, void (*callback)(uiElement element)) {
 	element.callback = callback;
+}
+
+void drawTextblock(uiElement &element, gfxScreen_t screen, gfx3dSide_t side, font_s font, std::string text) {
+	gfxDrawText(screen, side, &font, (char*)text.c_str(), element.X, element.Y);
 }
 /* ----------------Misc---------------- */
 RGB convertHexToRGB(int hexValue) {
