@@ -128,6 +128,18 @@ void setAppbarColor(uiWindow &window, RGB appbarColor) {
 void setNavbarColor(uiWindow &window, RGB navbarColor) {
 	window.navbar.navbarColor = navbarColor;
 }
+Result removeElement(uiWindow &window, std::string elementName) {
+	s16 x = 0;
+	bool elementFound;
+	for (uiElement* &element : window.elements){
+		x++;
+		if (element->name == elementName) {
+			window.elements.erase(window.elements.begin() + x);
+			elementFound = true;
+		}
+	}
+	return elementFound ? 1 : -99; //TODO: Error codes
+}
 
 /* ----------------Misc---------------- */
 RGB convertHexToRGB(int hexValue) {

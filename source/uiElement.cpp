@@ -30,20 +30,21 @@ uiElement::~uiElement() {
 void uiElement::render(uiWindow &window) { }
 
 /* uiTextBlock */
-uiTextBlock::uiTextBlock() {
+uiTextBlock::uiTextBlock(std::string cname) {
 	type = 1;
+	name = cname;
 }
 void uiTextBlock::configure(s16 nx, s16 ny, font_s cfont, std::string text) {
 	content = text;
 	font = cfont;
 	x = nx;
-	y = ny + (STATUSBAR_H + NAVBAR_H);
+	y = (ny + (STATUSBAR_H + NAVBAR_H)) + font.height;
 }
 void uiTextBlock::render(uiWindow &window) {
 #ifdef DEBUG
 	svcOutputDebugString("rendering uiTextBlock", 255);
 #endif
-	gfxDrawText(window.settings.isTopScreen ? GFX_TOP : GFX_BOTTOM, GFX_LEFT, &font, (char*)content.c_str(), y, x);
+	gfxDrawText(window.settings.isTopScreen ? GFX_TOP : GFX_BOTTOM, GFX_LEFT, &font, (char*)content.c_str(), x, y);
 	if(window.settings.is3DEnabled)
 		gfxDrawText(GFX_TOP, GFX_RIGHT, &font, (char*)content.c_str(), x, y);
 }

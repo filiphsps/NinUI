@@ -63,6 +63,8 @@ void setNavbarColor(uiWindow &window, RGB navbarColor);	//Sets the navbar colour
 void setWindowFB(uiWindow &window);						//Sets the framebuffers
 void setWindowMode(bool isTopScreen,					//Sets the window mode
 	bool enable3D, uiWindow &window);
+Result removeElement(uiWindow &window,					//Removes an element from the window
+	std::string elementName);
 
 //Misc
 RGB convertHexToRGB(int hexValue);						//Converts the HEX colour format to RGB

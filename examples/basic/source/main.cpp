@@ -18,7 +18,7 @@ int main() {
 	setWindowMode(true, true, windowTop);
 	setWindowMode(false, false, windowBottom);
 
-	uiTextBlock* textBlock = new uiTextBlock();
+	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
 	textBlock->configure(0, 0, robootoBlack, "Hello World!");
 	windowTop.elements.push_back(textBlock);
 

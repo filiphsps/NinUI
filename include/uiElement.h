@@ -25,6 +25,7 @@ public:
 	void render(uiWindow &window);
 	s16 x, y;
 	s16 type;
+	std::string name;
 protected:
 };
 
@@ -33,7 +34,7 @@ private:
 	std::string content;
 	font_s font;
 public:
-	uiTextBlock();
+	uiTextBlock(std::string cname);
 	void configure(s16 x, s16 y, font_s font, std::string text);
 	void render(uiWindow &window);
 };
