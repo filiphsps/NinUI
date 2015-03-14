@@ -56,11 +56,37 @@ uiPopUp::uiPopUp(std::string cname) {
 	type = 4;
 }
 
-void uiPopUp::configure(std::string title, std::string msg) {
+void uiPopUp::configure(std::string title, std::string msg, std::string b1, std::string b2, font_s titleFont, font_s cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2) {
 	message = msg;
 	header = title;
+	button1 = b1;
+	button2 = b2;
+	font = cfont;
+	headerFont = titleFont;
+	border = cborder;
+	background = bg;
+	headerBackground = titleBg;
+	button1Color = cb1;
+	button2Color = cb2;
 }
 
 void uiPopUp::render(uiWindow &window) {
-	//TODO
+	//TODO: Interactable & Add values to defines.h
+	if (window.settings.isTopScreen) return; //PopUp is bottom-screen only!
+#ifdef DEBUG
+	svcOutputDebugString("rendering uiPopUp", 255);
+#endif
+	drawFillRect(34, 58, 274, 191, border.R, border.G, border.B, window.framebuf1);									//Border
+	drawFillRect(36, 60, 272, 85, background.R, background.G, background.B, window.framebuf1);						//Body
+	drawFillRect(36, 85, 272, 189, headerBackground.R, headerBackground.G, headerBackground.B, window.framebuf1);	//Header
+	gfxDrawText(GFX_BOTTOM, GFX_LEFT, &headerFont, (char*)header.c_str(), UIPOPUP_HEADER_X, UIPOPUP_HEADER_Y);
+	gfxDrawText(GFX_BOTTOM, GFX_LEFT, &font, (char*)message.c_str(), 0, 0);
+
+	drawFillRect(50, 151, 141, 179, button1Color.R, button1Color.G, button1Color.B, window.framebuf1);
+	gfxDrawText(GFX_BOTTOM, GFX_LEFT, &font, (char*)button1.c_str(), 58, 177);
+	if (button2 != "")
+	{
+		drawFillRect(166, 151, 257, 179, button2Color.R, button2Color.G, button2Color.B, window.framebuf1);
+		gfxDrawText(GFX_BOTTOM, GFX_LEFT, &font, (char*)button2.c_str(), 174, 177);
+	}
 }

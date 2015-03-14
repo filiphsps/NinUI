@@ -43,11 +43,16 @@ public:
 
 class uiPopUp : public uiElement {
 private:
-	std::string header;
-	std::string message;
+	std::string header, message, button1, button2;
 	font_s font;
+	font_s headerFont;
+	RGB border;
+	RGB background;
+	RGB headerBackground;
+	RGB button1Color;
+	RGB button2Color;
 public:
 	uiPopUp(std::string cname);
-	void configure(std::string title, std::string msg);
+	void configure(std::string title, std::string msg, std::string b1, std::string b2, font_s titleFont, font_s cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2);
 	void render(uiWindow &window);
 };

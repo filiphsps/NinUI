@@ -39,7 +39,7 @@ int main() {
 	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
 	textBlock->configure(0, 0, robootoBlack, "Hello World!");
 
-	//Adds the TextBlock to the upper window
+	//Adds the element(s) to the window(s)
 	addElement(windowTop, textBlock);
 
 	//Sets the upper window's header
