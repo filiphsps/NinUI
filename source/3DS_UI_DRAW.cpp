@@ -4,7 +4,6 @@
 #include <string.h>
 #include <3ds.h>
 #include "3DS_UI_DRAW.h"
-#include "font.h"
 #include "ascii64.h"
 
 void clearScreen(u8* screen,gfxScreen_t screenPos)

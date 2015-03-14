@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include "3DS_UI.h"
 #include "3DS_UI_DRAW.h"
+#include "uiElement.h"
 
 /* ----------------Init & Exit Related---------------- */
 Result uiInit(){
@@ -44,10 +45,24 @@ void renderWindow(uiWindow &window) {
 			clearScreen(window.framebuf1, GFX_BOTTOM);
 
 		//Render Elements
-		/*for (auto &element : window.elements)
+		for (uiElement* &element : window.elements)
 		{
-			
-		}*/
+			//Ugly
+			switch (element->type)
+			{
+				case 1: //TextBlock
+				{
+					uiTextBlock* textBlock = (uiTextBlock*)element;
+					textBlock->render(window);
+					break;
+				}
+				case 2:
+				{
+					break;
+				}
+			}
+				
+		}
 		if (window.settings.isTopScreen) {
 			//Lets draw the statusbar
 			drawStatusbar(window.framebuf1, window);

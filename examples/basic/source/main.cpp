@@ -1,5 +1,9 @@
 #include <3ds.h>
 #include <3DS_UI.h>
+#include <iostream>
+#include <vector>
+#include <uiElement.h>
+#include <uiFonts.h>
 
 int main() {
 	srvInit();
@@ -13,6 +17,10 @@ int main() {
 	uiWindow windowBottom =  createWindow();
 	setWindowMode(true, true, windowTop);
 	setWindowMode(false, false, windowBottom);
+
+	uiTextBlock* textBlock = new uiTextBlock();
+	textBlock->configure(0, 0, robootoBlack, "Hello World!");
+	windowTop.elements.push_back(textBlock);
 
 	windowTop.navbar.header = "Example 1";
 

@@ -23,6 +23,8 @@
 #define NAVBAR_H 36
 #define APPBAR_H 18
 #define SHADOW_ANGLE 135
+#define AVAILABLE_SCREEN_TOP_HEIGHT (SCREEN_TOP_HEIGHT - (STATUSBAR_H + NAVBAR_H))
+#define AVAILABLE_SCREEN_TOP_WIDTH 400
 
 /* Colours */
 #define WHITE	0xFFFFFF
@@ -34,3 +36,5 @@
 #define ORANGE	0xe67e22
 #define GREEN	0x2ecc71
 #define YELLOW	0xf1c40f
+
+#define DEBUG

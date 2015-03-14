@@ -1,4 +1,4 @@
-//TODO: Recode
+//TODO: Fix cordination system
 #pragma once
 
 #define TOP_ASPECT_X 0x5
@@ -10,7 +10,7 @@
 
 #include <3ds.h>
 #include <stdio.h>
-#include "font.h"
+#include "uiFonts.h"
 #include "ascii64.h"
 
 void clearScreen(u8* screen,gfxScreen_t screenPos);
@@ -23,6 +23,7 @@ void drawFillRect( int x1, int y1, int x2, int y2, char r, char g, char b, u8* s
 void drawCircle(int x, int y, int radius, char r, char g, char b, u8* screen);
 void drawFillCircle(int x, int y, int radius, char r , char g, char b, u8* screen);
 void drawCircleCircum(int xc, int yc, int x, int y, char r, char g, char b, u8* screen);
+
 void drawChar(char letter, int x, int y, char r, char g, char b, u8* screen);
 int drawCharacter(u8* fb, font_s* f, char c, s16 x, s16 y, u16 w, u16 h);
 void drawString(u8* fb, font_s* f, char* str, s16 x, s16 y, u16 w, u16 h);

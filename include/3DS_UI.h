@@ -17,6 +17,7 @@
 #include <vector>
 #include "defines.h"
 #include "3DS_UI_DRAW.h"
+class uiElement;
 
 /* ----------------Declarations---------------- */
 struct RGB {
@@ -38,7 +39,7 @@ struct uiWindowSettings {
 };
 struct uiWindow {
 	u8* framebuf1, *framebuf2, *tempfb;					//Framebuffers (framebuf2 is only used for 3D)
-	//std::vector<uiElement> elements;					//List of elements
+	std::vector<uiElement*> elements;					//List of elements
 	uiWindowSettings settings;							//Settings
 
 	uiNavbar navbar;									//Navbar
