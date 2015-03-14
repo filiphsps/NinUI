@@ -3,32 +3,16 @@ An opensource graphical-user-interface library for the Nintendo 3DS
 
 Usage
 ====
-Start by cloning this repo and type
-```
-make install
-```
- 
-Then change the following line in your project's makefile
-```
-LIBDIRS	:= $(CTRULIB)
-```
-to
-```
-LIBDIRS	:= $(CTRULIB) $(PORTLIBS)
-```
-Also, add 
-```
--l3DSGUI
-```
-to the end of
-```
-LIBS	:= 
-```
+Start by cloning this repo and type ` make install ` then change the following line in your project's makefile ` LIBDIRS	:= $(CTRULIB) ` to ` LIBDIRS	:= $(CTRULIB) $(PORTLIBS) ` Also, add ` -l3DSGUI ` to the end of ` LIBS	:=  `
+
+Documentation
+===
+See ` /doc `
+
 Dependencies
 ====
 * devkitarm
 * libctru
-
 
 Credits
 ====
