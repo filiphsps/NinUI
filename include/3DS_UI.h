@@ -1,6 +1,10 @@
 /*
-
-				3DS GUI (WIP NAME)
+	  ____  _____   _____       _    _ _____ 
+	 |___ \|  __ \ / ____|     | |  | |_   _|
+	   __) | |  | | (___ ______| |  | | | |  
+	  |__ <| |  | |\___ \______| |  | | | |  
+	  ___) | |__| |____) |     | |__| |_| |_ 
+	 |____/|_____/|_____/       \____/|_____|
 			 © Filiph Sandström 2015
 
 		TODO(In this file):
@@ -58,11 +62,14 @@ void drawNavbar(uiWindow &window, bool isLeft);
 //Window Related
 uiWindow createWindow();								//Creates an empty window
 void clearWindow(uiWindow &window);						//Resets all the window values to default
+void deleteWindow(uiWindow &window);					//Deletes the window
 void setAppbarColor(uiWindow &window, RGB appbarColor);	//Sets the appbar colour
 void setNavbarColor(uiWindow &window, RGB navbarColor);	//Sets the navbar colour
 void setWindowFB(uiWindow &window);						//Sets the framebuffers
 void setWindowMode(bool isTopScreen,					//Sets the window mode
 	bool enable3D, uiWindow &window);
+Result addElement(uiWindow &window,						//Adds an element to the window
+	uiElement *element);
 Result removeElement(uiWindow &window,					//Removes an element from the window
 	std::string elementName);
 

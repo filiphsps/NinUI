@@ -1,6 +1,10 @@
 /*
-
-				3DS GUI (WIP NAME)
+	  ____  _____   _____       _    _ _____ 
+	 |___ \|  __ \ / ____|     | |  | |_   _|
+	   __) | |  | | (___ ______| |  | | | |  
+	  |__ <| |  | |\___ \______| |  | | | |  
+	  ___) | |__| |____) |     | |__| |_| |_ 
+	 |____/|_____/|_____/       \____/|_____|
 			 © Filiph Sandström 2015
 
 		TODO(In this file):
@@ -105,6 +109,9 @@ uiWindow createWindow() {
 void clearWindow(uiWindow &window) {
 	window = uiWindow();
 }
+void deleteWindow(uiWindow &window) {
+	delete &window;
+}
 void setWindowFB(uiWindow &window) {
 	window.framebuf1 = (u8*)malloc(sizeof(u8*));
 	window.framebuf2 = (u8*)malloc(sizeof(u8*));
@@ -121,12 +128,9 @@ void setWindowMode(bool isTopScreen, bool enable3D, uiWindow &window) {
 	window.settings.is3DEnabled = isTopScreen ? enable3D : false; //Lets make sure we cant set 3D to true on the bottom screen
 	window.settings.isTopScreen = isTopScreen;
 }
-
-void setAppbarColor(uiWindow &window, RGB appbarColor) {
-	window.settings.appbarColor = appbarColor;
-}
-void setNavbarColor(uiWindow &window, RGB navbarColor) {
-	window.navbar.navbarColor = navbarColor;
+Result addElement(uiWindow &window, uiElement *element) {
+	window.elements.push_back(element);
+	return 0;
 }
 Result removeElement(uiWindow &window, std::string elementName) {
 	s16 x = 0;
@@ -139,6 +143,13 @@ Result removeElement(uiWindow &window, std::string elementName) {
 		}
 	}
 	return elementFound ? 1 : -99; //TODO: Error codes
+}
+
+void setAppbarColor(uiWindow &window, RGB appbarColor) {
+	window.settings.appbarColor = appbarColor;
+}
+void setNavbarColor(uiWindow &window, RGB navbarColor) {
+	window.navbar.navbarColor = navbarColor;
 }
 
 /* ----------------Misc---------------- */
