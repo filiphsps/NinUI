@@ -27,11 +27,8 @@
 uiElement::uiElement() {
 	type = 0;
 }
-uiElement::~uiElement() {
 
-}
-
-void uiElement::render(uiWindow &window) { }
+void uiElement::render(uiWindow &window) { } //Override me
 
 /* uiTextBlock */
 uiTextBlock::uiTextBlock(std::string cname) {
@@ -51,4 +48,19 @@ void uiTextBlock::render(uiWindow &window) {
 	gfxDrawText(window.settings.isTopScreen ? GFX_TOP : GFX_BOTTOM, GFX_LEFT, &font, (char*)content.c_str(), x, y);
 	if(window.settings.is3DEnabled)
 		gfxDrawText(GFX_TOP, GFX_RIGHT, &font, (char*)content.c_str(), x, y);
+}
+
+/* ui PopUp*/
+
+uiPopUp::uiPopUp(std::string cname) {
+	type = 4;
+}
+
+void uiPopUp::configure(std::string title, std::string msg) {
+	message = msg;
+	header = title;
+}
+
+void uiPopUp::render(uiWindow &window) {
+	//TODO
 }

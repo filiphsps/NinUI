@@ -60,8 +60,10 @@ void renderWindow(uiWindow &window) {
 					textBlock->render(window);
 					break;
 				}
-				case 2:
+				case 4:
 				{
+					uiPopUp* popUp = (uiPopUp*)element;
+					popUp->render(window);
 					break;
 				}
 			}

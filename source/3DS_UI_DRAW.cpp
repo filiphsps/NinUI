@@ -417,21 +417,18 @@ void gfxDrawText(gfxScreen_t screen, gfx3dSide_t side, font_s* f, char* str, s16
 {
 	if (!str)return;
 	if (!f)f = &robootoBlack;
-	
+#ifdef DEBUG
 	char buf[256];
-
 	snprintf(buf, 255, "(1)X: %d Y: %d", x, y);
-
 	svcOutputDebugString(buf, 256);
-
+#endif
 	s16 tmpy = y;
 	y = x;
 	x = SCREEN_TOP_HEIGHT - tmpy;
-
+#ifdef DEBUG
 	snprintf(buf, 255, "(2)X: %d Y: %d", x, y);
-
 	svcOutputDebugString(buf, 256);
-
+#endif
 	u16 fbWidth, fbHeight;
 	u8* fbAdr = gfxGetFramebuffer(screen, side, &fbWidth, &fbHeight);
 

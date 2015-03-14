@@ -24,13 +24,11 @@
 class uiElement {
 public:
 	uiElement();
-	~uiElement();
 
 	void render(uiWindow &window);
 	s16 x, y;
 	s16 type;
 	std::string name;
-protected:
 };
 
 class uiTextBlock : public uiElement {
@@ -40,5 +38,16 @@ private:
 public:
 	uiTextBlock(std::string cname);
 	void configure(s16 x, s16 y, font_s font, std::string text);
+	void render(uiWindow &window);
+};
+
+class uiPopUp : public uiElement {
+private:
+	std::string header;
+	std::string message;
+	font_s font;
+public:
+	uiPopUp(std::string cname);
+	void configure(std::string title, std::string msg);
 	void render(uiWindow &window);
 };

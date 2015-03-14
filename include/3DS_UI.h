@@ -38,8 +38,8 @@ struct uiWindowSettings {
 
 	//Colours
 	RGB statusbarColor = {41,128,185};					//The statusbar colour.							Default = Dark Cyan
-	RGB appbarColor;									//The appbar colour.							
-	RGB statusbarFontColor = {255,255,255};				//The statusbar font Colour.					Default = White
+	RGB appbarColor = {33,33,33};						//The appbar colour.							Default = Dark Grey	
+	RGB statusbarFontColor = {255,255,255};				//The statusbar font colour.					Default = White
 };
 struct uiWindow {
 	u8* framebuf1, *framebuf2, *tempfb;					//Framebuffers (framebuf2 is only used for 3D)
@@ -76,3 +76,4 @@ Result removeElement(uiWindow &window,					//Removes an element from the window
 //Misc
 RGB convertHexToRGB(int hexValue);						//Converts the HEX colour format to RGB
 std::string errorCodeToMsg(Result error);				//Translates error codes to human readable text
+std::string doKeyboard();
