@@ -26,6 +26,8 @@ public:
 	uiElement();
 
 	void render(uiWindow &window);
+	void setCallback(void (*callback)(void));
+	void(*callback)(void);
 	s16 x, y;
 	s16 type;
 	std::string name;

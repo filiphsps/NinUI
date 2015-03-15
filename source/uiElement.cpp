@@ -29,7 +29,9 @@ uiElement::uiElement() {
 }
 
 void uiElement::render(uiWindow &window) { } //Override me
-
+void uiElement::setCallback(void(*ccallback)(void)) {
+	callback = ccallback;
+}
 /* uiTextBlock */
 uiTextBlock::uiTextBlock(std::string cname) {
 	type = 1;
