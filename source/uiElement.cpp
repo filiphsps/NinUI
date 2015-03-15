@@ -52,8 +52,23 @@ void uiTextBlock::render(uiWindow &window) {
 		gfxDrawText(GFX_TOP, GFX_RIGHT, &font, (char*)content.c_str(), x, y);
 }
 
-/* ui PopUp*/
+/* uiTextBox */
+uiTextBox::uiTextBox(std::string cname) {
+	type = 2;
+}
+void uiTextBox::configure(s16 nx, s16 ny, font_s cfont, std::string placeholderText, RGB bg, RGB borderColor) {
+	x = nx;
+	y = ny;
+	font = cfont;
+	placeholder = placeholderText;
+	background = bg;
+	border = borderColor;
+}
+void uiTextBox::render(uiWindow &window) {
+	//TODO
+}
 
+/* uiPopUp */
 uiPopUp::uiPopUp(std::string cname) {
 	type = 4;
 }
@@ -78,9 +93,9 @@ void uiPopUp::render(uiWindow &window) {
 #ifdef DEBUG
 	svcOutputDebugString("rendering uiPopUp", 255);
 #endif
-	drawFillRect(34, 58, 274, 191, border.R, border.G, border.B, window.framebuf1);									//Border
-	drawFillRect(36, 60, 272, 85, background.R, background.G, background.B, window.framebuf1);						//Body
-	drawFillRect(36, 85, 272, 189, headerBackground.R, headerBackground.G, headerBackground.B, window.framebuf1);	//Header
+	drawFillRect(UIPOPUP_BORDER_X, 58, UIPOPUP_BORDER_Y, 191, border.R, border.G, border.B, window.framebuf1);									//Border
+	drawFillRect(UIPOPUP_X, 60, UIPOPUP_Y, 85, background.R, background.G, background.B, window.framebuf1);						//Body
+	drawFillRect(UIPOPUP_X, 85, UIPOPUP_Y, 189, headerBackground.R, headerBackground.G, headerBackground.B, window.framebuf1);	//Header
 	gfxDrawText(GFX_BOTTOM, GFX_LEFT, &headerFont, (char*)header.c_str(), UIPOPUP_HEADER_X, UIPOPUP_HEADER_Y);
 	gfxDrawText(GFX_BOTTOM, GFX_LEFT, &font, (char*)message.c_str(), 0, 0);
 

@@ -23,6 +23,7 @@
 #include "3DS_UI.h"
 #include "3DS_UI_DRAW.h"
 #include "uiElement.h"
+#include "keyboardImage.h"
 
 /* ----------------Init & Exit Related---------------- */
 Result uiInit(){
@@ -58,6 +59,12 @@ void renderWindow(uiWindow &window) {
 				{
 					uiTextBlock* textBlock = (uiTextBlock*)element;
 					textBlock->render(window);
+					break;
+				}
+				case 2: //TextBox
+				{
+					uiTextBox* textBox = (uiTextBox*)element;
+					textBox->render(window);
 					break;
 				}
 				case 4:

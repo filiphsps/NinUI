@@ -43,6 +43,18 @@ public:
 	void render(uiWindow &window);
 };
 
+class uiTextBox : public uiElement {
+private:
+	std::string placeholder;
+	font_s font;
+	RGB background;
+	RGB border;
+public:
+	uiTextBox(std::string cname);
+	void configure(s16 x, s16 y, font_s font, std::string placeholderText, RGB bg, RGB borderColor);
+	void render(uiWindow &window);
+};
+
 class uiPopUp : public uiElement {
 private:
 	std::string header, message, button1, button2;
