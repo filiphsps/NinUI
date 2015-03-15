@@ -5,7 +5,7 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-					EXAMPLE 1
+				EXAMPLE 1 "Basic"
 			 © Filiph Sandström 2015
 
 		   SEE "LICENSE" FOR THE LICENSE
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
-#include <uiElement.h>
 
 int main() {
 	//Initialize services
@@ -70,5 +69,8 @@ int main() {
 
 	//Deinitialize services
 	gfxExit();
+	hidExit();
+	aptExit();
+	srvExit();
 	return 0;
 }

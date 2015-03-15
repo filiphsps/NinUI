@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <3ds.h>
-#include "3DS_UI_DRAW.h"
-#include "ascii64.h"
-#include "defines.h"
+#include "3DS_UI/3DS_UI_DRAW.h"
+#include "3DS_UI/ascii64.h"
+#include "3DS_UI/defines.h"
 
 void clearScreen(u8* screen,gfxScreen_t screenPos)
 {
@@ -203,26 +203,30 @@ void gfxDrawSprite(gfxScreen_t screen, gfx3dSide_t side, u8* spriteData, u16 wid
 {
 	if(!spriteData)return;
 
+	s16 tmpy = y;
+	y = x;
+	x = SCREEN_TOP_HEIGHT - tmpy;
+
 	u16 fbWidth, fbHeight;
 	u8* fbAdr=gfxGetFramebuffer(screen, side, &fbWidth, &fbHeight);
 
-	if(x+width<0 || x>=fbWidth)return;
-	if(y+height<0 || y>=fbHeight)return;
+	if(x+height<0 || x>=fbWidth)return;
+	if(y+width<0 || y>=fbHeight)return;
 
 	u16 xOffset=0, yOffset=0;
-	u16 widthDrawn=width, heightDrawn=height;
+	u16 widthDrawn=height, heightDrawn=width;
 
 	if(x<0)xOffset=-x;
 	if(y<0)yOffset=-y;
-	if(x+width>=fbWidth)widthDrawn=fbWidth-x;
-	if(y+height>=fbHeight)heightDrawn=fbHeight-y;
+	if(x+height>=fbWidth)widthDrawn=fbWidth-x;
+	if(y+width>=fbHeight)heightDrawn=fbHeight-y;
 	widthDrawn-=xOffset;
 	heightDrawn-=yOffset;
 
 	int j;
 	for(j=yOffset; j<yOffset+heightDrawn; j++)
 	{
-		memcpy(&fbAdr[((x+xOffset)+(y+j)*fbWidth)*3], &spriteData[((xOffset)+(j)*width)*3], widthDrawn*3);
+		memcpy(&fbAdr[((x+xOffset)+(y+j)*fbWidth)*3], &spriteData[((xOffset)+(j)*height)*3], widthDrawn*3);
 	}
 }
 

@@ -20,10 +20,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "3DS_UI.h"
-#include "3DS_UI_DRAW.h"
-#include "uiElement.h"
-#include "keyboardImage.h"
+#include "3DS_UI/3DS_UI.h"
+#include "3DS_UI/3DS_UI_DRAW.h"
+#include "3DS_UI/uiElement.h"
+#include "3DS_UI/keyboardImage.h"
 
 /* ----------------Init & Exit Related---------------- */
 Result uiInit(){
@@ -111,6 +111,15 @@ void drawNavbar(uiWindow &window, bool isLeft){
 		gfxDrawText(GFX_TOP, GFX_RIGHT, &robootoWhite, (char*)window.navbar.header.c_str(), 10, NAVBAR_HEADER_Y);
 	}
 }
+std::string doKeyboard() {
+	gfxDrawSprite(GFX_BOTTOM, GFX_LEFT, keyboardImage, KEYBOARD_WIDTH, KEYBOARD_HEIGHT, KEYBOARD_X, KEYBOARD_Y);
+	for (int x = 0; x > 3; x++)
+		for (int y = 0; y > 11; y++) {
+			//TODO: Check input, check buttom row
+		}
+	return "";
+}
+
 /* ----------------Window Related---------------- */
 uiWindow createWindow() {
 	return uiWindow();

@@ -18,8 +18,8 @@
 
 #include <iostream>
 #include <vector>
-#include "3DS_UI.h"
-#include "3DS_UI_DRAW.h"
+#include "3DS_UI/3DS_UI.h"
+#include "3DS_UI/3DS_UI_DRAW.h"
 
 class uiElement {
 public:

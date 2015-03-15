@@ -1,5 +1,5 @@
 #include <3ds.h>
-#include "uiFonts.h"
+#include "3DS_UI/uiFonts.h"
 
 font_s robootoBlack =
 {

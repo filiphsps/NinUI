@@ -1,5 +1,5 @@
 #include <3ds.h>
-#include "uiFonts.h"
+#include "3DS_UI/uiFonts.h"
 charDesc_s robotoSmallDesc[] = {
 	(charDesc_s){0, 0, 0, 0, 0, 0, 0, 0, NULL},
 	(charDesc_s){0, 0, 0, 0, 0, 0, 0, 0, NULL},

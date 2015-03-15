@@ -48,4 +48,15 @@
 #define GREEN	0x2ecc71
 #define YELLOW	0xf1c40f
 
+/* Keyboard */
+#define KEYBOARD_X 0
+#define KEYBOARD_Y 240
+#define KEYBOARD_WIDTH 320
+#define KEYBOARD_HEIGHT 155
+#define KEYBOARD_BUTTON_WIDTH 23
+#define KEYBOARD_BUTTON_HEIGHT 23
+#define KEYBOARD_ROW1_X 4
+#define KEYBOARD_ROW1_Y 7
+#define KEYBOARD_ROW1_OFFSET 7
+
 #define DEBUG

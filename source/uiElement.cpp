@@ -19,9 +19,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "3DS_UI.h"
-#include "3DS_UI_DRAW.h"
-#include "uiElement.h"
+#include "3DS_UI/3DS_UI.h"
+#include "3DS_UI/3DS_UI_DRAW.h"
+#include "3DS_UI/uiElement.h"
 
 /* uiElement */
 uiElement::uiElement() {
