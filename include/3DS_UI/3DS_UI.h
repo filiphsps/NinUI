@@ -27,6 +27,16 @@ class uiElement;
 struct RGB {
 	u8 R, G, B;											//Colour codes in RGB format
 };
+struct uiKey {
+	char key;
+	u16 x1, x2, y1, y2;
+	s16 pos;
+	s16 row;
+	bool isPressed, isSpecial;
+};
+struct uiKeyboard {
+	std::vector<uiKey> keys;
+};
 struct uiNavbar {
 	RGB navbarColor =  {52,152,219};					//The navbar colour								Default = Cyan
 	std::string header = "";							//The navbar header								Default = ""
@@ -58,7 +68,8 @@ Result uiExit();										//Prepares 3DS_GUI for app termination
 void renderWindow(uiWindow &window);					//Render the passed uiWindow
 void drawStatusbar(u8* &fb, uiWindow &window);
 void drawNavbar(uiWindow &window, bool isLeft);
-std::string doKeyboard();
+uiKeyboard createKeyboard();
+std::string doKeyboard(uiKeyboard &kb, uiWindow &window);
 
 //Window Related
 uiWindow createWindow();								//Creates an empty window
@@ -77,4 +88,4 @@ Result removeElement(uiWindow &window,					//Removes an element from the window
 //Misc
 RGB convertHexToRGB(int hexValue);						//Converts the HEX colour format to RGB
 std::string errorCodeToMsg(Result error);				//Translates error codes to human readable text
-std::string doKeyboard();
+char getKey(s16 num);
