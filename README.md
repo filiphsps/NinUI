@@ -14,7 +14,7 @@ Start by cloning this repo and type ` make install ` then change the following l
 
 Documentation
 ===
-See ` /doc `
+See ` /doc ` and [filfatstudios.com](http://www.filfatstudios.com/3DS_UI)
 
 Dependencies
 ====
