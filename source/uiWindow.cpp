@@ -15,6 +15,7 @@
 		   SEE "LICENSE" FOR THE LICENSE
 */
 #include "3DS_UI/uiWindow.h"
+#include "3DS_UI/uiElement.h"
 
 uiWindow::uiWindow(bool isTopScreen) {
 	settings.isTopScreen = isTopScreen;
@@ -28,6 +29,17 @@ void uiWindow::render() {
 		drawStatusbar(settings.statusbarColor);
 		drawNavbar(navbar.navbarColor);
 	}
+
+	//Render all the elements
+	for (auto element : elements) {
+		switch (element->type) {
+		case 5: {
+			uiRect* rect = (uiRect*)element;
+			rect->render();
+		}
+		}
+	}
+
 	sf2d_end_frame();
 }
 

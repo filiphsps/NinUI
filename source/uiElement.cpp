@@ -106,3 +106,19 @@ void uiPopUp::render() {
 //		gfxDrawText(GFX_BOTTOM, GFX_LEFT, &font, (char*)button2.c_str(), 174, 177);
 //	}
 }
+
+/* uiRect */
+uiRect::uiRect(std::string cname) {
+	name = cname;
+	type = 5;
+}
+void uiRect::configure(s16 X, s16 Y, s16 w, s16 h, RGB color) {
+	x = X;
+	y = Y;
+	W = w;
+	H = h;
+	BackgroundColor = color;
+}
+void uiRect::render() {
+	sf2d_draw_rectangle(x, y, W, H, RGBA8(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, 0xFF));
+}

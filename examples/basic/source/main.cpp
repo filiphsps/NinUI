@@ -32,12 +32,13 @@ int main() {
 	uiWindow windowBottom =  new uiWindow(false);
 	windowTop.set3D(true);
 
-	//Creates a new TextBlock
-	//uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
-	//textBlock->configure(0, 0, robootoBlackSmall, "Hello World!");
+	//Creates a new Rect
+	uiRect* rect = new uiRect("Rect1");
+	RGB bg = {255, 0 , 0};
+	rect->configure(50, 50, 40, 40, bg);
 
 	//Adds the element to the window
-	//windowTop.addElement(textBlock);
+	windowTop.addElement(rect);
 
 	//Sets the windowTop's navbar header
 	windowTop.setNavbarHeader("Example 1");
@@ -59,7 +60,7 @@ int main() {
 	}
 
 	//Removes the element
-	//windowTop.removeElement("TextBlock1");
+	windowTop.removeElement("Rect1");
 
 	//Exit UI
 	uiExit();

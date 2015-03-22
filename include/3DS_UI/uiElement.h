@@ -69,3 +69,13 @@ public:
 	void configure(std::string title, std::string msg, std::string b1, std::string b2, font_s titleFont, font_s cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2);
 	void render();
 };
+
+class uiRect : public uiElement {
+private:
+	s16 W, H;
+	RGB BackgroundColor;
+public:
+	uiRect(std::string cname);
+	void configure(s16 X, s16 Y, s16 w, s16 h, RGB color);
+	void render();
+};
