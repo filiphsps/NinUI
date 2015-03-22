@@ -18,14 +18,13 @@
 
 #include <iostream>
 #include <vector>
-#include "3DS_UI/3DS_UI.h"
-#include "3DS_UI/3DS_UI_DRAW.h"
+#include "defines.h"
 
 class uiElement {
 public:
 	uiElement();
 
-	void render(uiWindow &window);
+	void render();
 	void setCallback(void (*callback)(void));
 	void(*callback)(void);
 	s16 x, y;
@@ -40,7 +39,7 @@ private:
 public:
 	uiTextBlock(std::string cname);
 	void configure(s16 x, s16 y, font_s font, std::string text);
-	void render(uiWindow &window);
+	void render();
 };
 
 class uiTextBox : public uiElement {
@@ -52,7 +51,7 @@ private:
 public:
 	uiTextBox(std::string cname);
 	void configure(s16 x, s16 y, font_s font, std::string placeholderText, RGB bg, RGB borderColor);
-	void render(uiWindow &window);
+	void render();
 };
 
 class uiPopUp : public uiElement {
@@ -68,5 +67,5 @@ private:
 public:
 	uiPopUp(std::string cname);
 	void configure(std::string title, std::string msg, std::string b1, std::string b2, font_s titleFont, font_s cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2);
-	void render(uiWindow &window);
+	void render();
 };

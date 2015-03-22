@@ -22,27 +22,25 @@ int main() {
 	srvInit();
 	aptInit();
 	hidInit(NULL);
-	gfxInitDefault();
 	gfxSet3D(true);
 
 	//Init 3DS_UI
 	uiInit();
 	
 	//Creates two windows, one for the upper screen and one for the bottom screen
-	uiWindow windowTop =  createWindow();
-	uiWindow windowBottom =  createWindow();
-	setWindowMode(true, true, windowTop);
-	setWindowMode(false, false, windowBottom);
+	uiWindow windowTop =  new uiWindow(true);
+	uiWindow windowBottom =  new uiWindow(false);
+	windowTop.set3D(true);
 
 	//Creates a new TextBlock
-	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
-	textBlock->configure(0, 0, robootoBlack, "Hello World!");
+	//uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
+	//textBlock->configure(0, 0, robootoBlackSmall, "Hello World!");
 
-	//Adds the element(s) to the window(s)
-	addElement(windowTop, textBlock);
+	//Adds the element to the window
+	//windowTop.addElement(textBlock);
 
-	//Sets the upper window's header
-	windowTop.navbar.header = "Example 1";
+	//Sets the windowTop's navbar header
+	windowTop.setNavbarHeader("Example 1");
 
 	while (aptMainLoop())
 	{
@@ -53,22 +51,17 @@ int main() {
 			break;
 
 		//Renders both windows
-		renderWindow(windowTop);
-		renderWindow(windowBottom);
+		windowTop.render();
+		//windowBottom.render();
 	}
 
 	//Removes the element
-	removeElement(windowTop, "TextBlock1");
-
-	//Frees up the memory used by the windows
-	deleteWindow(windowTop);
-	deleteWindow(windowBottom);
+	//windowTop.removeElement("TextBlock1");
 
 	//Exit UI
 	uiExit();
 
 	//Deinitialize services
-	gfxExit();
 	hidExit();
 	aptExit();
 	srvExit();

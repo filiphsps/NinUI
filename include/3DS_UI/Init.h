@@ -7,11 +7,15 @@
 	 |____/|_____/|_____/       \____/|_____|
 			 © Filiph Sandström 2015
 
+		TODO(In this file):
+		* Alot
+		CONTRIBUTORS(In this file):
+		* Filiph Sandström (filfat)
+
 		   SEE "LICENSE" FOR THE LICENSE
 */
 #pragma once
+#include <3ds.h>
 
-#include "3DS_UI/uiWindow.h"
-#include "3DS_UI/uiElement.h"
-#include "3DS_UI/Init.h"
-#include "3DS_UI/Utils.h"
+Result uiInit();	//Initializes 3DS_GUI
+Result uiExit();	//Prepares 3DS_GUI for app termination

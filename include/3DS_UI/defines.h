@@ -15,6 +15,9 @@
 		   SEE "LICENSE" FOR THE LICENSE
 */
 #pragma once
+#include <iostream>
+#include <vector>
+#include <sf2d.h>
 
 /* Screen */
 #define SCREEN_TOP_HEIGHT 240
@@ -65,4 +68,37 @@
 #define KEYBOARD_ROW4_X 4
 #define KEYBOARD_ROW1_OFFSET 7
 
+/* Debug */
 #define DEBUG
+
+struct RGB {
+	u8 R, G, B;											//Colour codes in RGB format
+};
+struct uiKey {
+	char key;
+	u16 x1, x2, y1, y2;
+	s16 pos;
+	s16 row;
+	bool isPressed, isSpecial;
+};
+struct uiKeyboard {
+	std::vector<uiKey> keys;
+	bool inSpecialMode = false;
+};
+struct uiNavbar {
+	RGB navbarColor = { 52,152,219 };					//The navbar colour								Default = Cyan
+	std::string header = "";							//The navbar header								Default = ""
+};
+struct uiWindowSettings {
+	bool fullscreen = false;							//True if statusbar should be disabled			Default = false
+	bool isTopScreen = true;							//True if window is placed on the topscreen		Default = true
+	bool is3DEnabled = true;							//True if the window supports 3D				Default = true
+
+														//Colours
+	RGB statusbarColor = { 41,128,185 };				//The statusbar colour.							Default = Dark Cyan
+	RGB appbarColor = { 33,33,33 };						//The appbar colour.							Default = Dark Grey	
+	RGB statusbarFontColor = { 255,255,255 };			//The statusbar font colour.					Default = White
+};
+struct font_s {
+
+};
