@@ -4,7 +4,7 @@
 #	  |__ <| |  | |\___ \______| |  | | | |  
 #	  ___) | |__| |____) |     | |__| |_| |_ 
 #	 |____/|_____/|_____/       \____/|_____|
-#			 © Filiph Sandström 2015
+#			 Â© Filiph SandstrÃ¶m 2015
 #
 #		   SEE "LICENSE" FOR THE LICENSE
 #---------------------------------------------------------------------------------
@@ -104,8 +104,8 @@ $(BUILD): lib
 dist-bin: all
 	@tar -cjf 3DS_GUI.tar.bz2 include lib
 install: dist-bin
-	mkdir -p $(DEVKITPRO)/portlibs/3ds
-	bzip2 -cd 3DS_GUI.tar.bz2 | tar -x -C $(DEVKITPRO)/portlibs/3ds
+	bzip2 -cd 3DS_GUI.tar.bz2 | tar -x -C $(CURDIR)
+	@echo "Installed"
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...
