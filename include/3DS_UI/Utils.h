@@ -27,3 +27,4 @@
 RGB convertHexToRGB(int hexValue);
 void drawStatusbar(RGB color);
 void drawNavbar(RGB color);
+void uiFinishRendering();

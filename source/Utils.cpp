@@ -40,3 +40,7 @@ void drawStatusbar(RGB color) {
 void drawNavbar(RGB color) {
 	sf2d_draw_rectangle(0, STATUSBAR_H, SCREEN_TOP_WIDTH, NAVBAR_H + STATUSBAR_H, RGBA8(color.R, color.G, color.B, 0xFF));
 }
+
+void uiFinishRendering() {
+	sf2d_swapbuffers();
+}

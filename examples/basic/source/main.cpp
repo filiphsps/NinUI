@@ -52,7 +52,10 @@ int main() {
 
 		//Renders both windows
 		windowTop.render();
-		//windowBottom.render();
+		windowBottom.render();
+		
+		//Call when you have rendred the window(s)
+		uiFinishRendering();
 	}
 
 	//Removes the element

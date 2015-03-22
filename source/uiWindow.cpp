@@ -23,7 +23,7 @@ uiWindow::uiWindow(bool isTopScreen) {
 uiWindow::~uiWindow() { }
 
 void uiWindow::render() {
-	sf2d_start_frame();
+	sf2d_start_frame(settings.isTopScreen ? GFX_TOP : GFX_BOTTOM, GFX_LEFT);
 	if (settings.isTopScreen) {
 		drawStatusbar(settings.statusbarColor);
 		drawNavbar(navbar.navbarColor);
