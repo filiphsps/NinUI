@@ -104,7 +104,7 @@ $(BUILD): lib
 dist-bin: all
 	@tar -cjf 3DS_GUI.tar.bz2 include lib
 install: dist-bin
-	bzip2 -cd 3DS_GUI.tar.bz2 | tar -x -C $(CURDIR)
+	bzip2 -cd 3DS_GUI.tar.bz2 | tar -x -C $(CTRULIB)
 	@echo "Installed"
 #---------------------------------------------------------------------------------
 clean:
