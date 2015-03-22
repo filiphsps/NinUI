@@ -10,7 +10,7 @@ An opensource graphical-user-interface library for the Nintendo 3DS
 
 Usage
 ====
-Start by cloning this repo and type ` make install ` then change the following line in your project's makefile ` LIBDIRS	:= $(CTRULIB) ` to ` LIBDIRS	:= $(CTRULIB) $(PORTLIBS) ` Also, add ` -l3DSGUI ` to the end of ` LIBS	:=  `
+Start by cloning this repo and type ` make install ` (for both 3DS_UI & sf2dlib) then add the following ` -lsf2d -l3DSGUI ` to the end of ` LIBS	:=  `
 
 Documentation
 ===
@@ -18,8 +18,9 @@ See ` /doc ` and [filfatstudios.com](http://www.filfatstudios.com/3DS_UI)
 
 Dependencies
 ====
-* devkitarm
-* libctru
+* [devkitarm](http://devkitpro.org/wiki/Getting_Started/devkitARM)
+* [libctru](https://github.com/smealum/ctrulib)
+* [sf2dlib](https://github.com/xerpi/sf2dlib)
 
 Credits
 ====
