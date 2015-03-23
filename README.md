@@ -10,11 +10,11 @@ An opensource graphical-user-interface library for the Nintendo 3DS
 
 Usage
 ====
-Start by cloning this repo and type ` make install ` (for both 3DS_UI & sf2dlib) then add the following `-l3DSGUI -lsf2d ` to the start of  ` LIBS	:=  ` (see the examples)
+Start by cloning this repo or download the latest release, then type ` make install ` in either cmd or a terminal followed by adding the following `-l3DSGUI -lsf2d ` to the start of  ` LIBS	:=  ` but after ` := ` (see the examples)
 
 Documentation
 ===
-See ` /doc ` and [filfatstudios.com](http://www.filfatstudios.com/3DS_UI)
+See [3DS-UI Documentation](http://www.filfatstudios.com/products/3DS_UI) and ` /doc `
 
 Dependencies
 ====
@@ -26,5 +26,5 @@ Credits
 ====
 * Filiph Sandström (@filfat)
 * WinterMute for devkitarm
-* Smealum & C.O. for Ninjhax and CTRULIB
+* Smealum & C.o. for Ninjhax and CTRULIB
 * Xerpi for sf2dlib
