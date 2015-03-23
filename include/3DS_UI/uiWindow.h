@@ -24,6 +24,7 @@
 
 class uiWindow {
 public:
+	uiWindow();
 	uiWindow(bool isTopScreen);
 	~uiWindow();
 
@@ -38,6 +39,7 @@ public:
 	void set3D(bool enable3D);									//Sets the 3d mode
 	void setAppbarColor(RGB appbarColor);						//Sets the appbar colour
 	void setStatusbarColor(RGB statusbarColor);					//Sets the statusbar colour
+	void setScreen(bool isTop);
 
 	/* Navbar Related */
 	void setNavbarColor(RGB navbarColor);

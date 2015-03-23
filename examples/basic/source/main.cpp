@@ -29,7 +29,7 @@ int main() {
 	
 	//Creates two windows, one for the upper screen and one for the bottom screen
 	uiWindow windowTop =  new uiWindow(true);
-	uiWindow windowBottom =  new uiWindow(false);
+	uiWindow windowBottom =  uiWindow(false);
 	windowTop.set3D(true);
 
 	//Creates a new Rect
@@ -38,7 +38,7 @@ int main() {
 	rect->configure(50, 50, 40, 40, bg);
 
 	//Adds the element to the window
-	windowTop.addElement(rect);
+	windowBottom.addElement(rect);
 
 	//Sets the windowTop's navbar header
 	windowTop.setNavbarHeader("Example 1");
@@ -60,7 +60,7 @@ int main() {
 	}
 
 	//Removes the element
-	windowTop.removeElement("Rect1");
+	windowBottom.removeElement("Rect1");
 
 	//Exit UI
 	uiExit();

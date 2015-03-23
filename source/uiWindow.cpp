@@ -17,6 +17,9 @@
 #include "3DS_UI/uiWindow.h"
 #include "3DS_UI/uiElement.h"
 
+uiWindow::uiWindow() {
+	
+}
 uiWindow::uiWindow(bool isTopScreen) {
 	settings.isTopScreen = isTopScreen;
 }
@@ -79,4 +82,8 @@ void uiWindow::setNavbarColor(RGB navbarColor) {
 
 void uiWindow::setNavbarHeader(std::string header) {
 	navbar.header = header;
+}
+
+void uiWindow::setScreen(bool isTop) {
+	settings.isTopScreen = isTop;
 }
