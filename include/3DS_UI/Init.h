@@ -17,5 +17,14 @@
 #pragma once
 #include <3ds.h>
 
-Result uiInit();	//Initializes 3DS_GUI
-Result uiExit();	//Prepares 3DS_GUI for app termination
+/**
+* @brief Initializes 3DS_GUI
+* @return the error code (0 if successful)
+*/
+Result uiInit();
+
+/**
+* @brief Prepares a 3DS_GUI app for termination
+* @return the error code (0 if successful)
+*/
+Result uiExit();

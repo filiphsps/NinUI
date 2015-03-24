@@ -71,9 +71,13 @@
 /* Debug */
 #define DEBUG
 
+/**
+* @brief RGB colour
+*/
 struct RGB {
-	u8 R, G, B;											//Colour codes in RGB format
+	u8 R, G, B;
 };
+
 struct uiKey {
 	char key;
 	u16 x1, x2, y1, y2;
@@ -85,6 +89,7 @@ struct uiKeyboard {
 	std::vector<uiKey> keys;
 	bool inSpecialMode = false;
 };
+
 struct uiNavbar {
 	RGB navbarColor = { 52,152,219 };					//The navbar colour								Default = Cyan
 	std::string header = "";							//The navbar header								Default = ""
@@ -99,6 +104,10 @@ struct uiWindowSettings {
 	RGB appbarColor = { 33,33,33 };						//The appbar colour.							Default = Dark Grey	
 	RGB statusbarFontColor = { 255,255,255 };			//The statusbar font colour.					Default = White
 };
+
+/**
+* @brief font struct
+*/
 struct font_s {
 
 };

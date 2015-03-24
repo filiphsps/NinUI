@@ -24,7 +24,22 @@
 #include <ctype.h>
 #include "defines.h"
 
+/**
+* @brief Converts HEX to RGB
+* @param hexValue the HEX code
+* @return the colour in RGB format
+* 
+* Example Usage:
+* @code
+*   RGB colour = convertHexToRGB(0xFFFFFF);
+* @endcode
+*/
 RGB convertHexToRGB(int hexValue);
+
 void drawStatusbar(RGB color);
 void drawNavbar(RGB color);
+
+/**
+* @brief Finishes drawing the current frame
+*/
 void uiFinishRendering();
