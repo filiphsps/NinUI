@@ -14,20 +14,22 @@
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
-#include <iostream>
-#include <sf2d.h>
-#include "3DS_UI/Init.h"
-#include "3DS_UI/Utils.h"
+#pragma once
 
-Result uiInit() {
-	//Let's start by initing sf2d
-	sf2d_init();
-	//Then, let's set the clear colour to white
-	setBackgroundColor({255,255,255});
-	return 0;
-}
-Result uiExit() {
-	//End with exiting sf2d
-	sf2d_fini();
-	return 0;
-}
+#include "defines.h"
+
+namespace Colors {
+	RGB White = {255,255,255};
+	RGB Black = {0,0,0};
+	//Red
+	RGB Red = {255,0,0};
+	RGB Crimson = {220,20,60};
+	RGB LightPink = {255,182,193};
+	RGB Pink = {255,192,203};
+	//Purple
+	RGB Orchid = {218,112,214};
+	RGB Magenta = {255,0,255};
+	RGB Purple = {128,0,128};
+	//Blue
+	RGB Blue = {0,0,255};
+};

@@ -43,3 +43,14 @@ void drawNavbar(RGB color);
 * @brief Finishes drawing the current frame
 */
 void uiFinishRendering();
+
+/**
+* @brief Sets the background colour
+* @param color the colour
+*
+* Example Usage:
+* @code
+*   setBackgroundColor(Colours::Red);
+* @endcode
+*/
+void setBackgroundColor(RGB color);

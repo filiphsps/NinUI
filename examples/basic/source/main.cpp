@@ -32,13 +32,18 @@ int main() {
 	uiWindow windowBottom =  uiWindow(false);
 	windowTop.set3D(true);
 
-	//Creates a new Rect
+	//Creates a few new Rects
 	uiRect* rect = new uiRect("Rect1");
-	RGB bg = {255, 0 , 0};
-	rect->configure(50, 50, 40, 40, bg);
+	rect->configure(50, 70, 40, 40, Colors::Magenta);
+	uiRect* rect2 = new uiRect("Rect2");
+	rect2->configure(50, 120, 40, 40, Colors::Red);
+	uiRect* rect3 = new uiRect("Rect3");
+	rect3->configure(50, 170, 40, 40, Colors::Black);
 
-	//Adds the element to the window
+	//Adds the elements to the window
 	windowBottom.addElement(rect);
+	windowBottom.addElement(rect2);
+	windowBottom.addElement(rect3);
 
 	//Sets the windowTop's navbar header
 	windowTop.setNavbarHeader("Example 1");
@@ -52,6 +57,7 @@ int main() {
 			break;
 
 		//Renders both windows
+		
 		windowTop.render();
 		windowBottom.render();
 		
@@ -59,8 +65,10 @@ int main() {
 		uiFinishRendering();
 	}
 
-	//Removes the element
+	//Removes the elements
 	windowBottom.removeElement("Rect1");
+	windowBottom.removeElement("Rect2");
+	windowBottom.removeElement("Rect3");
 
 	//Exit UI
 	uiExit();

@@ -44,3 +44,7 @@ void drawNavbar(RGB color) {
 void uiFinishRendering() {
 	sf2d_swapbuffers();
 }
+
+void setBackgroundColor(RGB color) {
+	sf2d_set_clear_color(RGBA8(color.R, color.G, color.B, 0xFF));
+}

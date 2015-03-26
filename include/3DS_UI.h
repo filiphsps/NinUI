@@ -15,3 +15,4 @@
 #include "3DS_UI/uiElement.h"
 #include "3DS_UI/Init.h"
 #include "3DS_UI/Utils.h"
+#include "3DS_UI/Colors.h"
