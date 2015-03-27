@@ -36,9 +36,15 @@ void uiWindow::render() {
 	//Render all the elements
 	for (auto element : elements) {
 		switch (element->type) {
+		case 1: {
+			uiTextBlock* textBlock = (uiTextBlock*)element;
+			textBlock->render();
+			break;
+		}
 		case 5: {
 			uiRect* rect = (uiRect*)element;
 			rect->render();
+			break;
 		}
 		}
 	}

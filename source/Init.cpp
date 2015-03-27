@@ -20,14 +20,14 @@
 #include "3DS_UI/Utils.h"
 
 Result uiInit() {
-	//Let's start by initing sf2d
+	//Let's start by initing sf2dlib
 	sf2d_init();
-	//Then, let's set the clear colour to white
+	//Then, let's set the background colour to white
 	setBackgroundColor({255,255,255});
 	return 0;
 }
 Result uiExit() {
-	//End with exiting sf2d
+	//And lastly let's exit sf2dlib
 	sf2d_fini();
 	return 0;
 }

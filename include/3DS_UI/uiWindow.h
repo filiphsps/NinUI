@@ -21,6 +21,7 @@
 #include <sf2d.h>
 #include "uiElement.h"
 #include "Utils.h"
+#include "uiFont.h"
 
 /**
 * @brief the uiWindow class

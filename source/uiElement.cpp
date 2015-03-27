@@ -19,9 +19,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "3DS_UI/uiElement.h"
-#include "3DS_UI/uiWindow.h"
 #include "3DS_UI/defines.h"
+#include "3DS_UI/uiElement.h"
+#include "3DS_UI/uiFont.h"
+#include "3DS_UI/uiWindow.h"
 
 /* uiElement */
 uiElement::uiElement() {
@@ -37,28 +38,22 @@ uiTextBlock::uiTextBlock(std::string cname) {
 	type = 1;
 	name = cname;
 }
-void uiTextBlock::configure(s16 nx, s16 ny, font_s cfont, std::string text) {
-	/*content = text;
+void uiTextBlock::configure(Vector2 cords, uiFont cfont, std::string text) {
+	x = cords.x;
+	y = cords.y;
 	font = cfont;
-	x = nx;
-	y = (ny + (STATUSBAR_H + NAVBAR_H)) + font.height;
+	content = text;
 }
-void uiTextBlock::render(uiWindow &window) {
-#ifdef DEBUG
-	svcOutputDebugString("rendering uiTextBlock", 255);
-#endif
-	gfxDrawText(window.settings.isTopScreen ? GFX_TOP : GFX_BOTTOM, GFX_LEFT, &font, (char*)content.c_str(), x, y);
-	if(window.settings.is3DEnabled)
-		gfxDrawText(GFX_TOP, GFX_RIGHT, &font, (char*)content.c_str(), x, y);*/
+void uiTextBlock::render() {
+	renderText(content, { x,y }, font);
 }
-
 /* uiTextBox */
 uiTextBox::uiTextBox(std::string cname) {
 	type = 2;
 }
-void uiTextBox::configure(s16 nx, s16 ny, font_s cfont, std::string placeholderText, RGB bg, RGB borderColor) {
-	x = nx;
-	y = ny;
+void uiTextBox::configure(Vector2 cords, uiFont cfont, std::string placeholderText, RGB bg, RGB borderColor) {
+	x = cords.x;
+	y = cords.y;
 	placeholder = placeholderText;
 	background = bg;
 	border = borderColor;
@@ -72,7 +67,7 @@ uiPopUp::uiPopUp(std::string cname) {
 	type = 4;
 }
 
-void uiPopUp::configure(std::string title, std::string msg, std::string b1, std::string b2, font_s titleFont, font_s cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2) {
+void uiPopUp::configure(std::string title, std::string msg, std::string b1, std::string b2, uiFont titleFont, uiFont cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2) {
 	message = msg;
 	header = title;
 	button1 = b1;
@@ -112,9 +107,9 @@ uiRect::uiRect(std::string cname) {
 	name = cname;
 	type = 5;
 }
-void uiRect::configure(s16 X, s16 Y, s16 w, s16 h, RGB color) {
-	x = X;
-	y = Y;
+void uiRect::configure(Vector2 cords, s16 w, s16 h, RGB color) {
+	x = cords.x;
+	y = cords.y;
 	W = w;
 	H = h;
 	BackgroundColor = color;

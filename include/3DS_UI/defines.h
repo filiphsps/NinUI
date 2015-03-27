@@ -40,17 +40,6 @@
 #define UIPOPUP_HEADER_X 41
 #define UIPOPUP_HEADER_Y 83
 
-/* Colours */
-#define WHITE	0xFFFFFF
-#define BLACK	0x000000
-#define GRAY	0x95a5a6
-#define BLUE	0x3498db
-#define RED		0xe74c3c
-#define PURPLE	0x9b59b6
-#define ORANGE	0xe67e22
-#define GREEN	0x2ecc71
-#define YELLOW	0xf1c40f
-
 /* Keyboard */
 #define KEYBOARD_X 0
 #define KEYBOARD_Y 240
@@ -72,6 +61,14 @@
 #define DEBUG
 
 /**
+* @brief Vector2
+*/
+struct Vector2 {
+	float x;
+	float y;
+};
+
+/**
 * @brief RGB colour
 */
 struct RGB {
@@ -89,7 +86,6 @@ struct uiKeyboard {
 	std::vector<uiKey> keys;
 	bool inSpecialMode = false;
 };
-
 struct uiNavbar {
 	RGB navbarColor = { 52,152,219 };					//The navbar colour								Default = Cyan
 	std::string header = "";							//The navbar header								Default = ""
@@ -103,11 +99,4 @@ struct uiWindowSettings {
 	RGB statusbarColor = { 41,128,185 };				//The statusbar colour.							Default = Dark Cyan
 	RGB appbarColor = { 33,33,33 };						//The appbar colour.							Default = Dark Grey	
 	RGB statusbarFontColor = { 255,255,255 };			//The statusbar font colour.					Default = White
-};
-
-/**
-* @brief font struct
-*/
-struct font_s {
-
 };

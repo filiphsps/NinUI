@@ -16,7 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
-
+#include "OpenSans.h"
 int main() {
 	//Initialize services
 	srvInit();
@@ -26,24 +26,26 @@ int main() {
 
 	//Init 3DS_UI
 	uiInit();
-	
+
 	//Creates two windows, one for the upper screen and one for the bottom screen
-	uiWindow windowTop =  new uiWindow(true);
-	uiWindow windowBottom =  uiWindow(false);
+	uiWindow windowTop = uiWindow(true);
+	uiWindow windowBottom = uiWindow(false);
 	windowTop.set3D(true);
 
-	//Creates a few new Rects
-	uiRect* rect = new uiRect("Rect1");
-	rect->configure(50, 70, 40, 40, Colors::Magenta);
-	uiRect* rect2 = new uiRect("Rect2");
-	rect2->configure(50, 120, 40, 40, Colors::Red);
-	uiRect* rect3 = new uiRect("Rect3");
-	rect3->configure(50, 170, 40, 40, Colors::Black);
+	//Read a bitmap font
+	uiFont OpenSansFont = readFont((u8*)OpenSans.pixel_data, 15, 15, 16, 256, Colors::Black);
 
-	//Adds the elements to the window
+	//Creates a new Rect
+	uiRect* rect = new uiRect("Rect1");
+	rect->configure({ 50, 70 }, 40, 40, Colors::Magenta);
+
+	//Creates a textBlock
+	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
+	textBlock->configure({ 100, 100 }, OpenSansFont, "Hello World!");
+	
+	//Adds the elements to the selected windows
 	windowBottom.addElement(rect);
-	windowBottom.addElement(rect2);
-	windowBottom.addElement(rect3);
+	windowTop.addElement(textBlock);
 
 	//Sets the windowTop's navbar header
 	windowTop.setNavbarHeader("Example 1");
@@ -60,15 +62,14 @@ int main() {
 		
 		windowTop.render();
 		windowBottom.render();
-		
+
 		//Call when you have rendred the window(s)
 		uiFinishRendering();
 	}
 
 	//Removes the elements
 	windowBottom.removeElement("Rect1");
-	windowBottom.removeElement("Rect2");
-	windowBottom.removeElement("Rect3");
+	windowTop.removeElement("TextBlock1");
 
 	//Exit UI
 	uiExit();
