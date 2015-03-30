@@ -20,14 +20,15 @@ SEE "LICENSE" FOR THE LICENSE
 #include "3DS_UI/defines.h"
 
 /**
-* @brief font struct
+* @brief bitmapfont struct
 */
-struct uiFont {
+struct uiBitmapFont {
 	sf2d_texture* bitmap;
-	s16 cellHeight, cellWidth, gridSize;
+	s16 cellSize, offset, gridSize;
+	float scale;
 	RGB color;
 };
 
-uiFont readFont(u8* bitmap, s16 cellHeight, s16 cellWidth, s16 gridSize, s16 texWidthAndHeight, RGB color);
-uiFont removeFont(uiFont &font);
-void renderText(std::string text, Vector2 cords, uiFont &font);
+uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale = 1);
+uiBitmapFont removeBitmapFont(uiBitmapFont &font);
+void renderBitmapText(std::string text, Vector2 cords, uiBitmapFont &font);

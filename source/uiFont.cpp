@@ -20,25 +20,26 @@
 #include "3DS_UI/uiFont.h"
 #include "3DS_UI/Utils.h"
 
-uiFont readFont(u8* bitmap, s16 cellHeight, s16 cellWidth, s16 gridSize, s16 texWidthAndHeight, RGB color) {
-	uiFont font;
-	font.cellHeight = cellHeight;
-	font.cellWidth = cellWidth;
+uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale = 1) {
+	uiBitmapFont font;
+	font.cellSize = cellSize;
 	font.gridSize = gridSize;
+	font.offset = offset;
+	font.scale = scale;
 	font.bitmap = sf2d_create_texture(texWidthAndHeight, texWidthAndHeight, GPU_RGBA8, SF2D_PLACE_RAM);
 	sf2d_fill_texture_from_RGBA8(font.bitmap, bitmap, texWidthAndHeight, texWidthAndHeight);
 	sf2d_texture_tile32(font.bitmap);
 	font.color = color;
 	return font;
 }
-void renderText(std::string text, Vector2 cords, uiFont &font) {
+void renderBitmapText(std::string text, Vector2 cords, uiBitmapFont &font) {
 	int bitmapX, bitmapY, tcX, tcY, count = 0;
 	for (char &c : text) {
-		bitmapX = (c % font.gridSize) * font.gridSize;
-		bitmapY = (int)(c / font.gridSize) * font.gridSize;
-		tcX = (int)(bitmapX);
-		tcY = (int)(bitmapY);
-		sf2d_draw_texture_part(font.bitmap, count >= 1 ? cords.x + font.cellWidth * count : cords.x, cords.y, tcX, tcY, font.cellWidth, font.cellHeight);
+		bitmapX = ((int)c % font.gridSize);
+		bitmapY = ((int)c / font.gridSize);
+		tcX = (int)(bitmapX * font.cellSize);
+		tcY = (int)(bitmapY * font.cellSize);
+		sf2d_draw_texture_part(font.bitmap, count >= 1 ? cords.x + (font.cellSize - font.offset) * count : cords.x, cords.y, tcX, tcY, font.cellSize - font.offset, font.cellSize);
 		count++;
 	}
 }

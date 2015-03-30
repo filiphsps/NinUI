@@ -38,20 +38,20 @@ uiTextBlock::uiTextBlock(std::string cname) {
 	type = 1;
 	name = cname;
 }
-void uiTextBlock::configure(Vector2 cords, uiFont cfont, std::string text) {
+void uiTextBlock::configure(Vector2 cords, uiBitmapFont cfont, std::string text) {
 	x = cords.x;
 	y = cords.y;
 	font = cfont;
 	content = text;
 }
 void uiTextBlock::render() {
-	renderText(content, { x,y }, font);
+	renderBitmapText(content, { (float)x,(float)y }, font);
 }
 /* uiTextBox */
 uiTextBox::uiTextBox(std::string cname) {
 	type = 2;
 }
-void uiTextBox::configure(Vector2 cords, uiFont cfont, std::string placeholderText, RGB bg, RGB borderColor) {
+void uiTextBox::configure(Vector2 cords, uiBitmapFont cfont, std::string placeholderText, RGB bg, RGB borderColor) {
 	x = cords.x;
 	y = cords.y;
 	placeholder = placeholderText;
@@ -67,7 +67,7 @@ uiPopUp::uiPopUp(std::string cname) {
 	type = 4;
 }
 
-void uiPopUp::configure(std::string title, std::string msg, std::string b1, std::string b2, uiFont titleFont, uiFont cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2) {
+void uiPopUp::configure(std::string title, std::string msg, std::string b1, std::string b2, uiBitmapFont titleFont, uiBitmapFont cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2) {
 	message = msg;
 	header = title;
 	button1 = b1;

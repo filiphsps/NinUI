@@ -50,7 +50,7 @@ public:
 class uiTextBlock : public uiElement {
 private:
 	std::string content;
-	uiFont font;
+	uiBitmapFont font;
 public:
 
 	/**
@@ -75,7 +75,7 @@ public:
 	*  textBlock.configure(0, 0, myFont, "Hello World!");
 	* @endcode
 	*/
-	void configure(Vector2 cords, uiFont font, std::string text);
+	void configure(Vector2 cords, uiBitmapFont font, std::string text);
 
 	/**
 	* @brief used by a uiWindow to render the element
@@ -91,12 +91,12 @@ public:
 class uiTextBox : public uiElement {
 private:
 	std::string placeholder;
-	uiFont font;
+	uiBitmapFont font;
 	RGB background;
 	RGB border;
 public:
 	uiTextBox(std::string cname);
-	void configure(Vector2 cords, uiFont font, std::string placeholderText, RGB bg, RGB borderColor);
+	void configure(Vector2 cords, uiBitmapFont font, std::string placeholderText, RGB bg, RGB borderColor);
 	void render();
 };
 
@@ -108,8 +108,8 @@ public:
 class uiPopUp : public uiElement {
 private:
 	std::string header, message, button1, button2;
-	uiFont font;
-	uiFont headerFont;
+	uiBitmapFont font;
+	uiBitmapFont headerFont;
 	RGB border;
 	RGB background;
 	RGB headerBackground;
@@ -117,7 +117,7 @@ private:
 	RGB button2Color;
 public:
 	uiPopUp(std::string cname);
-	void configure(std::string title, std::string msg, std::string b1, std::string b2, uiFont titleFont, uiFont cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2);
+	void configure(std::string title, std::string msg, std::string b1, std::string b2, uiBitmapFont titleFont, uiBitmapFont cfont, RGB cborder, RGB bg, RGB titleBg, RGB cb1, RGB cb2);
 
 	/**
 	* @brief used by a uiWindow to render the element
