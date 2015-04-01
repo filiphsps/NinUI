@@ -16,6 +16,7 @@
 */
 #include "3DS_UI/uiWindow.h"
 #include "3DS_UI/uiElement.h"
+#include "3DS_UI/Fonts/OpenSans.h"
 
 uiWindow::uiWindow() {
 	
@@ -31,17 +32,20 @@ void uiWindow::render() {
 	if (settings.isTopScreen) {
 		drawStatusbar(settings.statusbarColor);
 		drawNavbar(navbar.navbarColor);
+		renderBitmapText(navbar.header, {0, 23}, OpenSansFont_Large);
 	}
 
 	//Render all the elements
 	for (auto element : elements) {
 		switch (element->type) {
-		case 1: {
+		case Default: //Shouldn't be rendered
+			break;
+		case TextBlock: {
 			uiTextBlock* textBlock = (uiTextBlock*)element;
 			textBlock->render();
 			break;
 		}
-		case 5: {
+		case Rectangle: {
 			uiRect* rect = (uiRect*)element;
 			rect->render();
 			break;

@@ -22,6 +22,7 @@
 #include <ctype.h>
 #include "3DS_UI/defines.h"
 #include "3DS_UI/Utils.h"
+#include "3DS_UI/uiFont.h"
 
 RGB convertHexToRGB(int hexValue) {
 	//Thx Stackoverflow

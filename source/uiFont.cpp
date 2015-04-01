@@ -20,7 +20,7 @@
 #include "3DS_UI/uiFont.h"
 #include "3DS_UI/Utils.h"
 
-uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale = 1) {
+uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale) {
 	uiBitmapFont font;
 	font.cellSize = cellSize;
 	font.gridSize = gridSize;
@@ -39,7 +39,8 @@ void renderBitmapText(std::string text, Vector2 cords, uiBitmapFont &font) {
 		bitmapY = ((int)c / font.gridSize);
 		tcX = (int)(bitmapX * font.cellSize);
 		tcY = (int)(bitmapY * font.cellSize);
-		sf2d_draw_texture_part(font.bitmap, count >= 1 ? cords.x + (font.cellSize - font.offset) * count : cords.x, cords.y, tcX, tcY, font.cellSize - font.offset, font.cellSize);
+		//sf2d_draw_texture_part(font.bitmap, count >= 1 ? cords.x + (font.cellSize - font.offset) * count : cords.x, cords.y, tcX, tcY, font.cellSize - font.offset, font.cellSize);
+		sf2d_draw_texture_rotate_cut_scale(font.bitmap, count >= 1 ? cords.x + (font.cellSize - font.offset) * count : cords.x, cords.y, 0.0f, tcX, tcY, font.cellSize - font.offset, font.cellSize, font.scale, font.scale);
 		count++;
 	}
 }

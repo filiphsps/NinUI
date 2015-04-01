@@ -16,7 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
-#include "OpenSans.h"
+#include <3DS_UI/Fonts/OpenSans.h>
 
 int main() {
 	//Initialize services
@@ -36,16 +36,13 @@ int main() {
 	uiWindow windowBottom = uiWindow(false);
 	windowTop.set3D(true);
 
-	//Read a bitmap font
-	uiBitmapFont OpenSansFont = readBitmapFont((u8*)OpenSans.pixel_data, 32, 7, 16, 512, Colors::Black);
-
 	//Creates a new Rect
 	uiRect* rect = new uiRect("Rect1");
 	rect->configure({ 50, 70 }, 40, 40, Colors::Magenta);
 
 	//Creates a textBlock
 	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
-	textBlock->configure({ 0, 0 }, OpenSansFont, "Hello World!");
+	textBlock->configure({ 0, 0 }, OpenSansFont_Large, "Hello World!");
 	
 	//Adds the elements to the selected windows
 	windowBottom.addElement(rect);

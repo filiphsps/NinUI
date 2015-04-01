@@ -21,6 +21,8 @@
 #include "uiFont.h"
 #include "defines.h"
 
+enum uiElement_Types { Default, TextBlock, TextBox, Button, PopUp, Rectangle };
+
 /**
 * @brief the uiElement class
 * @details uiElement is the base class of all the elements.
@@ -38,7 +40,7 @@ public:
 	void setCallback(void (*callback)(void));
 	void(*callback)(void);
 	s16 x, y;
-	s16 type;
+	uiElement_Types type;
 	std::string name;
 };
 

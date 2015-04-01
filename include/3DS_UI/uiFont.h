@@ -29,6 +29,6 @@ struct uiBitmapFont {
 	RGB color;
 };
 
-uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale = 1);
+uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale = 1.0f);
 uiBitmapFont removeBitmapFont(uiBitmapFont &font);
 void renderBitmapText(std::string text, Vector2 cords, uiBitmapFont &font);

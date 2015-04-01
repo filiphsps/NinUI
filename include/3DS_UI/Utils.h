@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "defines.h"
+#include "Fonts/OpenSans.h"
 
 /**
 * @brief Converts HEX to RGB
