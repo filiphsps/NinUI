@@ -72,7 +72,7 @@ struct Vector2 {
 * @brief RGB colour
 */
 struct RGB {
-	u8 R, G, B;
+	u8 R, G, B, A;
 };
 
 struct uiKey {
@@ -88,6 +88,7 @@ struct uiKeyboard {
 };
 struct uiNavbar {
 	RGB navbarColor = { 52,152,219 };					//The navbar colour								Default = Cyan
+	RGB navbarFontColor = { 255,255,255 };				//The navbar font colour						Default = White
 	std::string header = "";							//The navbar header								Default = ""
 };
 struct uiWindowSettings {

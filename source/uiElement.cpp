@@ -29,7 +29,7 @@ uiElement::uiElement() {
 	type = Default;
 }
 
-void uiElement::render() { } //Override me
+void uiElement::render(bool isTopScreen, bool isLeft) { } //Override me
 void uiElement::setCallback(void(*ccallback)(void)) {
 	callback = ccallback;
 }
@@ -38,27 +38,28 @@ uiTextBlock::uiTextBlock(std::string cname) {
 	type = TextBlock;
 	name = cname;
 }
-void uiTextBlock::configure(Vector2 cords, uiBitmapFont cfont, std::string text) {
+void uiTextBlock::configure(Vector2 cords, uiTtfFont cfont, std::string text, RGB c) {
 	x = cords.x;
 	y = cords.y;
 	font = cfont;
 	content = text;
+	color = c;
 }
-void uiTextBlock::render() {
-	renderBitmapText(content, { (float)x,(float)y }, font);
+void uiTextBlock::render(bool isTopScreen, bool isLeft) {
+	renderTtfText(content, { (float)x,(float)y }, font, color);
 }
 /* uiTextBox */
 uiTextBox::uiTextBox(std::string cname) {
 	type = TextBox;
 }
-void uiTextBox::configure(Vector2 cords, uiBitmapFont cfont, std::string placeholderText, RGB bg, RGB borderColor) {
+void uiTextBox::configure(Vector2 cords, uiTtfFont cfont, std::string placeholderText, RGB bg, RGB borderColor) {
 	x = cords.x;
 	y = cords.y;
 	placeholder = placeholderText;
 	background = bg;
 	border = borderColor;
 }
-void uiTextBox::render() {
+void uiTextBox::render(bool isTopScreen, bool isLeft) {
 	//TODO
 }
 
@@ -81,7 +82,7 @@ void uiPopUp::configure(std::string title, std::string msg, std::string b1, std:
 	button2Color = cb2;
 }
 
-void uiPopUp::render() {
+void uiPopUp::render(bool isTopScreen, bool isLeft) {
 	//TODO: Interactable & Add values to defines.h
 	//	if (window.settings.isTopScreen) return; //PopUp is bottom-screen only!
 	//#ifdef DEBUG
@@ -114,6 +115,6 @@ void uiRect::configure(Vector2 cords, s16 w, s16 h, RGB color) {
 	H = h;
 	BackgroundColor = color;
 }
-void uiRect::render() {
+void uiRect::render(bool isTopScreen, bool isLeft) {
 	sf2d_draw_rectangle(x, y, W, H, RGBA8(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, 0xFF));
 }

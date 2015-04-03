@@ -16,7 +16,6 @@
 */
 #include "3DS_UI/uiWindow.h"
 #include "3DS_UI/uiElement.h"
-#include "3DS_UI/Fonts/OpenSans.h"
 
 uiWindow::uiWindow() {
 	
@@ -28,13 +27,13 @@ uiWindow::uiWindow(bool isTopScreen) {
 uiWindow::~uiWindow() { }
 
 void uiWindow::render() {
+	bool isLeft = true;
 	sf2d_start_frame(settings.isTopScreen ? GFX_TOP : GFX_BOTTOM, GFX_LEFT);
 	if (settings.isTopScreen) {
 		drawStatusbar(settings.statusbarColor);
 		drawNavbar(navbar.navbarColor);
-		renderBitmapText(navbar.header, {0, 23}, OpenSansFont_Large);
+		renderTtfText(navbar.header, {5, 23}, OpenSansFont, navbar.navbarFontColor);
 	}
-
 	//Render all the elements
 	for (auto element : elements) {
 		switch (element->type) {
@@ -42,17 +41,16 @@ void uiWindow::render() {
 			break;
 		case TextBlock: {
 			uiTextBlock* textBlock = (uiTextBlock*)element;
-			textBlock->render();
+			textBlock->render(settings.isTopScreen, isLeft);
 			break;
 		}
 		case Rectangle: {
 			uiRect* rect = (uiRect*)element;
-			rect->render();
+			rect->render(settings.isTopScreen, isLeft);
 			break;
 		}
 		}
 	}
-
 	sf2d_end_frame();
 }
 
@@ -66,6 +64,7 @@ Result uiWindow::removeElement(std::string elementName) {
 	for (uiElement* &element : elements) {
 		x++;
 		if (element->name == elementName) {
+			delete element;
 			elements.erase(elements.begin() + x);
 			elementFound = true;
 		}

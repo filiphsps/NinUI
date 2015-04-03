@@ -16,23 +16,30 @@
 */
 #include <iostream>
 #include <sf2d.h>
+#include <sftd.h>
 #include "3DS_UI/Init.h"
 #include "3DS_UI/Utils.h"
-#include "3DS_UI/Fonts/OpenSans.h"
+#include "3DS_UI/uiFont.h"
+#include "OpenSans_Regular_ttf.h"
 
-uiBitmapFont OpenSansFont_Large;
+uiTtfFont OpenSansFont;
 
 Result uiInit() {
 	//Let's start by initing sf2dlib
 	sf2d_init();
-	//Then, let's set the background colour to white
-	setBackgroundColor({255,255,255});
+	//Then, lets init the font system
+	sftd_init();
+	//After that, let's set the background colour to white
+	uiSetBackgroundColor({255,255,255});
 
 	//Init fonts
-	OpenSansFont_Large = readBitmapFont((u8*)OpenSansFont_LargeTex.pixel_data, 32, 7, 16, 512, {0,0,0});
+	OpenSansFont = readTtfFont((u8*)OpenSans_Regular_ttf, OpenSans_Regular_ttf_size);
+	OpenSansFont.fontSize = 28;
 	return 0;
 }
 Result uiExit() {
+	//
+	sftd_fini();
 	//And lastly let's exit sf2dlib
 	sf2d_fini();
 	return 0;

@@ -23,7 +23,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "defines.h"
-#include "Fonts/OpenSans.h"
 
 /**
 * @brief Converts HEX to RGB
@@ -54,4 +53,5 @@ void uiFinishRendering();
 *   setBackgroundColor(Colours::Red);
 * @endcode
 */
-void setBackgroundColor(RGB color);
+void uiSetBackgroundColor(RGB color);
+void uiSet3D(bool enable);

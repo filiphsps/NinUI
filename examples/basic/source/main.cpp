@@ -16,21 +16,22 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
-#include <3DS_UI/Fonts/OpenSans.h>
+#include <3DS_UI/Fonts/OpenSans_Regular.h>
 
 int main() {
 	//Initialize services
 	srvInit();
 	aptInit();
 	hidInit(NULL);
-	gfxSet3D(true);
 	
 	//Init 3DS_UI
 	uiInit();
+
+	//Enable 3D
+	uiSet3D(true);
 	
-	//Set background colour to black
-	setBackgroundColor(Colors::Black);
-	
+	uiSetBackgroundColor(Colors::Black); //Temp
+
 	//Creates two windows, one for the upper screen and one for the bottom screen
 	uiWindow windowTop = uiWindow(true);
 	uiWindow windowBottom = uiWindow(false);
@@ -40,9 +41,12 @@ int main() {
 	uiRect* rect = new uiRect("Rect1");
 	rect->configure({ 50, 70 }, 40, 40, Colors::Magenta);
 
+	//Create a copy of the default font & set the size
+	uiTtfFont Font = OpenSansFont;
+
 	//Creates a textBlock
 	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
-	textBlock->configure({ 0, 0 }, OpenSansFont_Large, "Hello World!");
+	textBlock->configure({ 5, 20 }, Font, "Hello World!", Colors::Green);
 	
 	//Adds the elements to the selected windows
 	windowBottom.addElement(rect);

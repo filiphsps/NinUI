@@ -32,4 +32,6 @@ namespace Colors {
 	RGB Purple = {128,0,128};
 	//Blue
 	RGB Blue = {0,0,255};
+	//Green
+	RGB Green = {0,255,0};
 };

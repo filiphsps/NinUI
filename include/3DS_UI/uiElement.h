@@ -32,7 +32,7 @@ class uiElement {
 public:
 	uiElement();
 
-	void render();
+	void render(bool isTopScreen, bool isLeft);
 	/**
 	* @brief sets the callback for the element
 	* @param callback a pointer to the callback function
@@ -52,7 +52,8 @@ public:
 class uiTextBlock : public uiElement {
 private:
 	std::string content;
-	uiBitmapFont font;
+	uiTtfFont font;
+	RGB color;
 public:
 
 	/**
@@ -77,12 +78,12 @@ public:
 	*  textBlock.configure(0, 0, myFont, "Hello World!");
 	* @endcode
 	*/
-	void configure(Vector2 cords, uiBitmapFont font, std::string text);
+	void configure(Vector2 cords, uiTtfFont font, std::string text, RGB c);
 
 	/**
 	* @brief used by a uiWindow to render the element
 	*/
-	void render();
+	void render(bool isTopScreen, bool isLeft);
 };
 
 /**
@@ -93,13 +94,13 @@ public:
 class uiTextBox : public uiElement {
 private:
 	std::string placeholder;
-	uiBitmapFont font;
+	uiTtfFont font;
 	RGB background;
 	RGB border;
 public:
 	uiTextBox(std::string cname);
-	void configure(Vector2 cords, uiBitmapFont font, std::string placeholderText, RGB bg, RGB borderColor);
-	void render();
+	void configure(Vector2 cords, uiTtfFont font, std::string placeholderText, RGB bg, RGB borderColor);
+	void render(bool isTopScreen, bool isLeft);
 };
 
 /**
@@ -124,7 +125,7 @@ public:
 	/**
 	* @brief used by a uiWindow to render the element
 	*/
-	void render();
+	void render(bool isTopScreen, bool isLeft);
 };
 
 /**
@@ -153,5 +154,5 @@ public:
 	/**
 	* @brief used by a uiWindow to render the element
 	*/
-	void render();
+	void render(bool isTopScreen, bool isLeft);
 };
