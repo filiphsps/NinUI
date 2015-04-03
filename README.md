@@ -21,6 +21,7 @@ Dependencies
 * [devkitarm](http://devkitpro.org/wiki/Getting_Started/devkitARM)
 * [libctru](https://github.com/smealum/ctrulib)
 * [sf2dlib](https://github.com/xerpi/sf2dlib)
+* [freetype2](https://github.com/devkitPro/3ds_portlibs)
 * [sftdlib](https://github.com/xerpi/sftdlib)
 
 
