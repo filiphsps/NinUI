@@ -21,7 +21,7 @@ Dependencies
 * [devkitarm](http://devkitpro.org/wiki/Getting_Started/devkitARM)
 * [libctru](https://github.com/smealum/ctrulib)
 * [sf2dlib](https://github.com/xerpi/sf2dlib)
-
+* [sftdlib](https://github.com/xerpi/sftdlib)
 Credits
 ====
 * Filiph Sandström (@filfat)
