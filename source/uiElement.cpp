@@ -118,3 +118,20 @@ void uiRect::configure(Vector2 cords, s16 w, s16 h, RGB color) {
 void uiRect::render(bool isTopScreen, bool isLeft) {
 	sf2d_draw_rectangle(x, y, W, H, RGBA8(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, 0xFF));
 }
+
+/* uiImage */
+uiImage::uiImage(std::string cname) {
+	name = cname;
+	type = Rectangle;
+}
+void uiImage::configure(Vector2 cords, s16 w, s16 h, sf2d_texture* texture, Vector2 texScale) {
+	x = cords.x;
+	y = cords.y;
+	W = w;
+	H = h;
+	tex = texture;
+	scale = texScale;
+}
+void uiImage::render(bool isTopScreen, bool isLeft) {
+	sf2d_draw_texture(tex,x,y);
+}

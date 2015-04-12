@@ -156,3 +156,33 @@ public:
 	*/
 	void render(bool isTopScreen, bool isLeft);
 };
+
+/**
+* @brief the uiImage class
+* @details uiImage is used to show a image on screen.
+*          It can be worth noting that its a child of the class uiElement
+*/
+class uiImage : public uiElement {
+private:
+	s16 W, H;
+	Vector2 scale = {1,1};
+	sf2d_texture* tex;
+public:
+	/**
+	* @brief creates a uiImage
+	* @param cname the name of the element
+	*
+	* Example Usage:
+	* @code
+	*  uiImage* image = new uiImage("Image1");
+	* @endcode
+	*/
+	uiImage(std::string cname);
+
+	void configure(Vector2 cords, s16 w, s16 h, sf2d_texture* texture, Vector2 texScale = { 1,1 });
+
+	/**
+	* @brief used by a uiWindow to render the element
+	*/
+	void render(bool isTopScreen, bool isLeft);
+};

@@ -18,6 +18,9 @@
 #include <3DS_UI.h>
 #include <3DS_UI/Fonts/OpenSans_Regular.h>
 
+#include "img.h"
+//#include "img_png.h"
+
 int main() {
 	//Initialize services
 	srvInit();
@@ -29,8 +32,6 @@ int main() {
 
 	//Enable 3D
 	uiSet3D(true);
-	
-	uiSetBackgroundColor(Colors::Black); //Temp
 
 	//Creates two windows, one for the upper screen and one for the bottom screen
 	uiWindow windowTop = uiWindow(true);
@@ -38,8 +39,8 @@ int main() {
 	windowTop.set3D(true);
 
 	//Creates a new Rect
-	uiRect* rect = new uiRect("Rect1");
-	rect->configure({ 50, 70 }, 40, 40, Colors::Magenta);
+	uiImage* image = new uiImage("Img1");
+	image->configure({ 0, 0 }, 240, 240, uiCreateTexture((u8*)img.pixel_data, "RAW", img.width, img.height), { 1,1 });
 
 	//Create a copy of the default font & set the size
 	uiTtfFont Font = OpenSansFont;
@@ -49,7 +50,7 @@ int main() {
 	textBlock->configure({ 5, 20 }, Font, "Hello World!", Colors::Green);
 	
 	//Adds the elements to the selected windows
-	windowBottom.addElement(rect);
+	windowTop.addElement(image);
 	windowBottom.addElement(textBlock);
 
 	//Sets the windowTop's navbar header
@@ -68,12 +69,12 @@ int main() {
 		windowTop.render();
 		windowBottom.render();
 
-		//Call when you have rendered the window(s)
+		//Call this when you have rendered the window(s)
 		uiFinishRendering();
 	}
 
 	//Removes the elements
-	windowBottom.removeElement("Rect1");
+	windowTop.removeElement("Img1");
 	windowBottom.removeElement("TextBlock1");
 
 	//Exit UI
