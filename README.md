@@ -6,6 +6,8 @@
 	 |____/|_____/|_____/       \____/|_____|
 ![Build Status](http://build.filfatstudios.com:8080/buildStatus/icon?job=3DS_GUI) [![Donation Status](https://img.shields.io/gratipay/filfat.svg)](https://gratipay.com/filfat/)
 ==
+**THIS PROJECT IS STILL IN DEVELOPMENT; AND THEREFORE ISN'T READY FOR USE**
+
 An opensource graphical-user-interface library for the Nintendo 3DS
 
 Usage
