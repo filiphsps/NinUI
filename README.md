@@ -10,6 +10,10 @@
 
 An opensource graphical-user-interface library for the Nintendo 3DS
 
+![](http://i.imgur.com/9ghqDby.png)
+
+*screenshot of "Example 1" from commit 5cf72f0925*
+
 Usage
 ====
 Start by cloning this repo or download the latest release, then type ` make install ` in either cmd or a terminal followed by adding the following `-l3DSGUI -lsf2d ` to the start of  ` LIBS	:=  ` but after ` := ` (see the examples)
