@@ -25,7 +25,7 @@ Dependencies
 * [sf2dlib](https://github.com/xerpi/sf2dlib)
 * [freetype2](https://github.com/mtheall/3ds_portlibs)
 * [sftdlib](https://github.com/xerpi/sftdlib)
-
+* [sfillib](https://github.com/xerpi/sfillib)
 
 Credits
 ====
