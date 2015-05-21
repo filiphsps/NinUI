@@ -35,8 +35,8 @@ int main() {
 	uiWindow* windowBottom = new uiWindow(false);
 
 	//Creates a new Rectangle
-	uiRect* rect = new uiRect("Img1");
-	rect->configure({ 50, 70 }, 72, 72, Colors::Green);
+	uiRect* rect = new uiRect("Rect1");
+	rect->configure({ 50, 70 }, 172, 72, Colors::Green);
 
 	//Create a new font object from the Open Sans font
 	uiTtfFont Font = OpenSansFont;
@@ -69,7 +69,7 @@ int main() {
 	}
 
 	//Removes the elements
-	windowTop->removeElement("Img1");
+	windowTop->removeElement("Rect1");
 	windowBottom->removeElement("TextBlock1");
 
 	//Deinitialize 3DS_UI
