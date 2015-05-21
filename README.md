@@ -10,7 +10,7 @@
 
 An opensource graphical-user-interface library for the Nintendo 3DS
 
-![](http://i.imgur.com/9ghqDby.png)
+![](http://i.imgur.com/vZhM9Ff.png)
 
 *screenshot of "Example 1" from commit 5cf72f0925*
 

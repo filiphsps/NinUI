@@ -186,3 +186,35 @@ public:
 	*/
 	void render(bool isTopScreen, bool isLeft);
 };
+
+/**
+* @brief the uiButton class
+* @details uiImage is used to render a clickable button.
+*          It can be worth noting that its a child of the class uiElement
+*/
+class uiButton : public uiElement {
+private:
+	s16 W, H;
+	Vector2 scale = {1,1};
+	sf2d_texture* tex;
+public:
+	/**
+	* @brief creates a uiButton
+	* @param cname the name of the element
+	*
+	* Example Usage:
+	* @code
+	*  uiButton* butn = new uiButton("Button1");
+	* @endcode
+	*/
+	uiButton(std::string cname);
+
+	void configure(Vector2 cords, s16 w, s16 h, void (*onClick)(void));
+	void setCallback(void (*callback)(void));
+	void(*callback)(void);
+	
+	/**
+	* @brief used by a uiWindow to render the element
+	*/
+	void render(bool isTopScreen, bool isLeft);
+};

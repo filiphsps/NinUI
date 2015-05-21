@@ -135,3 +135,21 @@ void uiImage::configure(Vector2 cords, s16 w, s16 h, sf2d_texture* texture, Vect
 void uiImage::render(bool isTopScreen, bool isLeft) {
 	sf2d_draw_texture(tex,x,y);
 }
+
+/* uiButton */
+uiButton::uiButton(std::string cname) {
+	name = cname;
+	type = Rectangle;
+}
+void uiButton::configure(Vector2 cords, s16 w, s16 h, void (*onClick)(void)) {
+	x = cords.x;
+	y = cords.y;
+	W = w;
+	H = h;
+	callback = onClick;
+}
+void uiButton::render(bool isTopScreen, bool isLeft) {
+	/*
+		TODO
+	*/
+}
