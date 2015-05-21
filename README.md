@@ -8,7 +8,7 @@
 ==
 **THIS PROJECT IS STILL IN DEVELOPMENT; AND THEREFORE ISN'T READY FOR USE**
 
-An opensource graphical-user-interface library for the Nintendo 3DS
+An opensource GPU driven graphical-user-interface library for the Nintendo 3DS. See the [Roadmap](https://github.com/filfat/3DS_UI/wiki/Roadmap)
 
 ![](http://i.imgur.com/vZhM9Ff.png?1)
 
@@ -20,7 +20,7 @@ Start by cloning this repo or download the latest release, then type ` make inst
 
 Documentation
 ===
-See [3DS-UI Documentation](http://www.filfatstudios.com/products/3DS_UI) and ` /doc `
+See The [Wiki](https://github.com/filfat/3DS_UI/wiki/), [3DS-UI Documentation](http://www.filfatstudios.com/products/3DS_UI) and ` /doc `
 
 Dependencies
 ====
