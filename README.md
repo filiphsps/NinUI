@@ -8,7 +8,7 @@
 ==
 **THIS PROJECT IS STILL IN DEVELOPMENT; AND THEREFORE ISN'T READY FOR USE**
 
-An opensource GPU driven graphical-user-interface library for the Nintendo 3DS. See the [Roadmap](https://github.com/filfat/3DS_UI/wiki/Roadmap)
+An opensource GPU driven graphical-user-interface library/framework for the Nintendo 3DS. See the [Roadmap](https://github.com/filfat/3DS_UI/wiki/Roadmap)
 
 ![](http://i.imgur.com/vZhM9Ff.png?1)
 
