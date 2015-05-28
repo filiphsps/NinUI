@@ -25,7 +25,7 @@ int main() {
 	hidInit(NULL);
 	
 	//Initialize 3DS_UI
-	uiInit();
+	uiInit("Example Application 1");
 
 	//Enable 3D
 	uiSet3D(true);

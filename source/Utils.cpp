@@ -54,7 +54,7 @@ void uiSet3D(bool enable) {
 }
 
 sf2d_texture* uiCreateTexture(u8* texture, std::string encoding, s16 w, s16 h) {
-	sf2d_texture* tex = sf2d_create_texture(w, h, GPU_RGBA8, SF2D_PLACE_RAM);
+	sf2d_texture* tex = sf2d_create_texture(w, h, TEXFMT_RGBA8, SF2D_PLACE_RAM);
 	if (encoding == "RAW") {
 		sf2d_fill_texture_from_RGBA8(tex, texture, w, h);
 		sf2d_texture_tile32(tex);
