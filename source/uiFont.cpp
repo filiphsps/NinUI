@@ -27,7 +27,7 @@ uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, 
 	font.gridSize = gridSize;
 	font.offset = offset;
 	font.scale = scale;
-	font.bitmap = sf2d_create_texture(texWidthAndHeight, texWidthAndHeight, GPU_RGBA8, SF2D_PLACE_RAM);
+	font.bitmap = sf2d_create_texture(texWidthAndHeight, texWidthAndHeight, TEXFMT_RGBA8, SF2D_PLACE_RAM);
 	sf2d_fill_texture_from_RGBA8(font.bitmap, bitmap, texWidthAndHeight, texWidthAndHeight);
 	sf2d_texture_tile32(font.bitmap);
 	font.color = color;
