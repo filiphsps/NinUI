@@ -5,12 +5,12 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 Â© Filiph SandstrÃ¶m 2015
 
 		TODO(In this file):
 		* Colour support for fonts (sf2dlib needs to att functionality for that)
 		CONTRIBUTORS(In this file):
-		* Filiph Sandström (filfat)
+		* Filiph SandstrÃ¶m (filfat)
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
@@ -19,7 +19,6 @@
 #include "3DS_UI/defines.h"
 #include "3DS_UI/uiFont.h"
 #include "3DS_UI/Utils.h"
-#include "3DS_UI/ttf/Font.h"
 
 uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale) {
 	uiBitmapFont font;
