@@ -4,9 +4,9 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-[![Build Status](http://build.filfatstudios.com:8080/job/3DS_UI/badge/icon)](http://build.filfatstudios.com:8080/job/3DS_UI/) [![Donation Status](https://img.shields.io/gratipay/filfat.svg)](https://gratipay.com/filfat/)
+[![Donation Status](https://img.shields.io/gratipay/filfat.svg)](https://gratipay.com/filfat/)
 ==
-**THIS PROJECT IS STILL IN DEVELOPMENT; AND THEREFORE ISN'T READY FOR USE**
+**THE DEVELOPMENT OF THIS PROJECT IS CURRENTLY ON HOLD!**
 
 An opensource GPU driven graphical-user-interface library/framework for the Nintendo 3DS. See the [Roadmap](https://github.com/filfat/3DS_UI/wiki/Roadmap)
 
