@@ -4,7 +4,6 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-[![Donation Status](https://img.shields.io/gratipay/filfat.svg)](https://gratipay.com/filfat/)
 ==
 **THE DEVELOPMENT OF THIS PROJECT IS CURRENTLY ON HOLD!**
 
@@ -17,10 +16,6 @@ An opensource GPU driven graphical-user-interface library/framework for the Nint
 Usage
 ====
 Start by cloning this repo or download the latest release, then type ` make install ` in either cmd or a terminal followed by adding the following `-l3DSGUI -lsf2d ` to the start of  ` LIBS	:=  ` but after ` := ` (see the examples)
-
-Documentation
-===
-See The [Wiki](https://github.com/filfat/3DS_UI/wiki/), [3DS-UI Documentation](http://www.filfatstudios.com/products/3DS_UI) and ` /doc `
 
 Dependencies
 ====
