@@ -1,3 +1,4 @@
+# Don't use this, like really.
 	  ____  _____   _____       _    _ _____ 
 	 |___ \|  __ \ / ____|     | |  | |_   _|
 	   __) | |  | | (___ ______| |  | | | |  
@@ -5,7 +6,6 @@
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
 ==
-**THE DEVELOPMENT OF THIS PROJECT IS CURRENTLY ON HOLD!**
 
 An opensource GPU driven graphical-user-interface library/framework for the Nintendo 3DS. See the [Roadmap](https://github.com/filfat/3DS_UI/wiki/Roadmap)
 
