@@ -5,12 +5,12 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 Â© Filiph SandstrÃ¶m 2015
 
 		TODO(In this file):
 		* Alot
 		CONTRIBUTORS(In this file):
-		* Filiph Sandström (filfat)
+		* Filiph SandstrÃ¶m (filfat)
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
@@ -33,7 +33,10 @@ void uiWindow::render() {
 		drawStatusbar(settings.statusbarColor);
 		drawNavbar(navbar.navbarColor);
 		renderTtfText(navbar.header, {5, 23}, OpenSansFont, navbar.navbarFontColor);
+	} else {
+		//TODO: Update touch input
 	}
+	
 	//Render all the elements
 	for (auto element : elements) {
 		switch (element->type) {
