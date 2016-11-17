@@ -1,8 +1,8 @@
 1. TextBlock
-2. TextBox ` Not Implamented `
-3. Button ` Not Implamented `
-4. PopUp ` Not Implamented `
+2. TextBox ` Not implemented `
+3. Button ` Not implemented `
+4. PopUp ` Not implemented `
 5. Rectangle
 6. Image
 
-99 Custom ` Not Implamented `
+99 Custom ` Not implemented `
