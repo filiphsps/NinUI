@@ -5,8 +5,8 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-	 
-	  EXAMPLE 1 "Basic"
+
+	  EXAMPLE 1 "Basic
 	  © Filiph Sandström 2015-2017
 	  SEE "LICENSE" FOR THE LICENSE
 */
@@ -36,7 +36,7 @@ int main () {
 	uiWindow* windowTop = new uiWindow(true);
 	uiWindow* windowBottom = new uiWindow(false);
 
-	//Creates a new Rectangle
+	//Creates a new uiRect
 	uiRect* rect = new uiRect("Rect1");
 	rect->configure({ 50, 50 }, 72, 72, Colors::Crimson);
 
@@ -74,15 +74,15 @@ int main () {
 			x_back = false;
 		rect->configure({x_back ? --x : ++x, x/2}, 72, 72, {x, 255 - x, 255 - x, 0xFF});
 
-		//Renders both windows
+		//Render both windows
 		windowTop->render();
 		windowBottom->render();
 
-		//Call this when you have rendered the window(s)
+		//Complete the rendering
 		uiFinishRendering();
 	}
 
-	//Removes the elements
+	//Remove the elements
 	windowTop->removeElement("Rect1");
 	windowBottom->removeElement("TextBlock1");
 	windowBottom->removeElement("Button1");
