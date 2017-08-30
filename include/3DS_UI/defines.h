@@ -5,12 +5,12 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 ï¿½ Filiph Sandstrï¿½m 2015
 
 		TODO(In this file):
 		* Alot
 		CONTRIBUTORS(In this file):
-		* Filiph Sandström (filfat)
+		* Filiph Sandstrï¿½m (filfat)
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
@@ -57,9 +57,6 @@
 #define KEYBOARD_ROW4_X 4
 #define KEYBOARD_ROW1_OFFSET 7
 
-/* Debug */
-#define DEBUG
-
 /**
 * @brief Vector2
 */
@@ -96,8 +93,7 @@ struct uiWindowSettings {
 	bool isTopScreen = true;							//True if window is placed on the topscreen		Default = true
 	bool is3DEnabled = true;							//True if the window supports 3D				Default = true
 
-														//Colours
+														//Colors
 	RGB statusbarColor = { 41,128,185 };				//The statusbar colour.							Default = Dark Cyan
-	RGB appbarColor = { 33,33,33 };						//The appbar colour.							Default = Dark Grey	
-	RGB statusbarFontColor = { 255,255,255 };			//The statusbar font colour.					Default = White
+	RGB appbarColor = { 33,33,33 };						//The appbar colour.							Default = Dark Grey
 };

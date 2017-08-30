@@ -16,13 +16,13 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
-#include <3DS_UI/Fonts/OpenSans_Regular.h>
+#include "OpenSans_Regular_ttf.h"
 
-int main() {
+int main () {
 	//Initialize services
 	srvInit();
 	aptInit();
-	hidInit(NULL);
+	hidInit();
 	
 	//Initialize 3DS_UI
 	uiInit("Example Application 1");
@@ -36,21 +36,17 @@ int main() {
 
 	//Creates a new Rectangle
 	uiRect* rect = new uiRect("Rect1");
-	rect->configure({ 50, 70 }, 172, 72, Colors::Green);
-
-	//Create a new font object from the Open Sans font
-	uiTtfFont Font = OpenSansFont;
+	rect->configure({ 50, 50 }, 72, 72, Colors::Crimson);
 
 	//Create a new uiTextBlock
+	//uiTtfFont Font = readTtfFont((u8*)OpenSans_Regular_ttf, OpenSans_Regular_ttf_size);
+
 	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
-	textBlock->configure({ 0, 10 }, Font, "Hello World!", Colors::Black);
+	//textBlock->configure({ 0, 10 }, Font, "Hello World!", Colors::Black);
 	
 	//Adds all the elements to the selected windows
 	windowTop->addElement(rect);
-	windowBottom->addElement(textBlock);
-
-	//Sets the windowTop's navbar header
-	windowTop->setNavbarHeader("Example 1");
+	windowTop->addElement(textBlock);
 
 	while (aptMainLoop())
 	{

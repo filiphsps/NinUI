@@ -5,14 +5,14 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 ï¿½ Filiph Sandstrï¿½m 2015
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
 #pragma once
 
-#include "3DS_UI/uiWindow.h"
-#include "3DS_UI/uiElement.h"
+#include "3DS_UI/GUI/uiWindow.h"
+#include "3DS_UI/GUI/uiElement.h"
 #include "3DS_UI/Init.h"
 #include "3DS_UI/Utils.h"
 #include "3DS_UI/Colors.h"

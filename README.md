@@ -21,7 +21,7 @@ Dependencies
 ====
 * [devkitarm](http://devkitpro.org/wiki/Getting_Started/devkitARM)
 * [libctru](https://github.com/smealum/ctrulib)
-* [sf2dlib](https://github.com/xerpi/sf2dlib)
+* [sf2dlib](https://github.com/TricksterGuy/sf2dlib)
 * [freetype2](https://github.com/mtheall/3ds_portlibs)
 * [sftdlib](https://github.com/xerpi/sftdlib)
 * [sfillib](https://github.com/xerpi/sfillib)
@@ -31,4 +31,4 @@ Credits
 * Filiph Sandström (@filfat)
 * WinterMute for devkitarm
 * Smealum & C.o. for Ninjhax and CTRULIB
-* Xerpi for sf2dlib
+* Xerpi for sf2dlib (and TricksterGuy for maintaining it)

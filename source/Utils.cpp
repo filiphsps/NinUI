@@ -5,12 +5,12 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 ï¿½ Filiph Sandstrï¿½m 2015
 
 		TODO(In this file):
 		* Alot
 		CONTRIBUTORS(In this file):
-		* Filiph Sandström (filfat)
+		* Filiph Sandstrï¿½m (filfat)
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
@@ -22,7 +22,7 @@
 #include <ctype.h>
 #include "3DS_UI/defines.h"
 #include "3DS_UI/Utils.h"
-#include "3DS_UI/uiFont.h"
+#include "3DS_UI/GUI/uiFont.h"
 
 RGB convertHexToRGB(int hexValue) {
 	//Thx Stackoverflow
@@ -33,17 +33,8 @@ RGB convertHexToRGB(int hexValue) {
 
 	return color;
 }
-
-void drawStatusbar(RGB color) {
-	sf2d_draw_rectangle(0, 0, SCREEN_TOP_WIDTH, STATUSBAR_H, RGBA8(color.R, color.G, color.B, 0xFF));
-	//TODO: clock, appname
-}
-void drawNavbar(RGB color) {
-	sf2d_draw_rectangle(0, STATUSBAR_H, SCREEN_TOP_WIDTH, NAVBAR_H + STATUSBAR_H, RGBA8(color.R, color.G, color.B, 0xFF));
-}
-
 void uiFinishRendering() {
-	sf2d_swapbuffers();
+	
 }
 
 void uiSetBackgroundColor(RGB color) {

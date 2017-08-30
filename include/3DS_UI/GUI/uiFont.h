@@ -5,12 +5,12 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 ï¿½ Filiph Sandstrï¿½m 2015
 
 		TODO(In this file):
 		* Alot
 		CONTRIBUTORS(In this file):
-		* Filiph Sandström (filfat)
+		* Filiph Sandstrï¿½m (filfat)
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
@@ -42,8 +42,5 @@ struct uiTtfFont {
 
 extern uiTtfFont OpenSansFont;
 
-uiBitmapFont readBitmapFont(u8* bitmap, s16 cellSize, s16 offset, s16 gridSize, s16 texWidthAndHeight, RGB color, float scale = 1.0f);
-uiBitmapFont removeBitmapFont(uiBitmapFont &font);
-void renderBitmapText(std::string text, Vector2 cords, uiBitmapFont &font);
 uiTtfFont readTtfFont(u8* fontData, u32 fontSize);
 void renderTtfText(std::string text, Vector2 cords, uiTtfFont &font, RGB color);

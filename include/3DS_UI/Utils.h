@@ -5,12 +5,12 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-			 © Filiph Sandström 2015
+			 ï¿½ Filiph Sandstrï¿½m 2015
 
 		TODO(In this file):
 		* Alot
 		CONTRIBUTORS(In this file):
-		* Filiph Sandström (filfat)
+		* Filiph Sandstrï¿½m (filfat)
 
 		   SEE "LICENSE" FOR THE LICENSE
 */
@@ -35,9 +35,6 @@
 * @endcode
 */
 RGB convertHexToRGB(int hexValue);
-
-void drawStatusbar(RGB color);
-void drawNavbar(RGB color);
 
 /**
 * @brief Finishes drawing the current frame

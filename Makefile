@@ -26,9 +26,9 @@ include $(DEVKITARM)/3ds_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	3DSUI
 BUILD		:=	build
-SOURCES		:=	source
+SOURCES		:=	source source/GUI
 DATA		:=	data
-INCLUDES	:=	include include/3DS_UI
+INCLUDES	:=	include
 
 #---------------------------------------------------------------------------------
 # options for code generation
