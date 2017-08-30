@@ -15,9 +15,6 @@
 	void uiElement::render(bool isTopScreen, bool isLeft) {
 		//Override me
 	}
-	void uiElement::setCallback(void(*ccallback)(void)) {
-		callback = ccallback;
-	}
 	void uiElement::setPosition(Vector2 cords) {
 		x = cords.x;
 		y = cords.y;
@@ -26,8 +23,11 @@
 		w = size.x;
 		h = size.y;
 	}
-	void uiElement::onClick(void (*ccallback)()) {
-		e_onclick = ccallback;
+	void uiElement::setColor(RGB c) {
+		color = c;
+	}
+	void uiElement::onClick(std::function<void()> func) {
+		e_onclick = func;
 	}
 
 /* uiTextBlock */
@@ -55,48 +55,34 @@
 		name = cname;
 		type = uiElement_Types::Rectangle;
 	}
-	void uiRect::configure(Vector2 cords, s16 ww, s16 hh, RGB color) {
+	void uiRect::configure(Vector2 cords, s16 ww, s16 hh, RGB c) {
 		x = cords.x;
 		y = cords.y;
 		w = ww;
 		h = hh;
-		BackgroundColor = color;
+		color = c;
 	}
 	void uiRect::render(bool isTopScreen, bool isLeft) {
-		sf2d_draw_rectangle(x, y, w, h, RGBA8(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, BackgroundColor.A));
-	}
-
-/* uiImage */
-	uiImage::uiImage(std::string cname) {
-		name = cname;
-		type = Rectangle;
-	}
-	void uiImage::configure(Vector2 cords, s16 w, s16 h, sf2d_texture* texture, Vector2 texScale) {
-		x = cords.x;
-		y = cords.y;
-		W = w;
-		H = h;
-		tex = texture;
-		scale = texScale;
-	}
-	void uiImage::render(bool isTopScreen, bool isLeft) {
-		sf2d_draw_texture(tex,x,y);
+		sf2d_draw_rectangle(x, y, w, h, RGBA8(color.R, color.G, color.B, color.A));
 	}
 
 /* uiButton */
 	uiButton::uiButton(std::string cname) {
 		name = cname;
-		type = Rectangle;
+		type = Button;
 	}
-	void uiButton::configure(Vector2 cords, s16 w, s16 h, void (*onClick)(void)) {
+	void uiButton::configure(Vector2 cords, s16 cw, s16 ch, uiTtfFont cfont, s16 csize, std::string text, RGB c) {
 		x = cords.x;
 		y = cords.y;
-		W = w;
-		H = h;
-		callback = onClick;
+		h = ch;
+		w = cw;
+		font = cfont;
+		size = csize;
+		content = text;
+		color = c;
 	}
 	void uiButton::render(bool isTopScreen, bool isLeft) {
-		/*
-			TODO
-		*/
+		sf2d_draw_rectangle(x, y, w, h, RGBA8(color.R, color.G, color.B, color.A));
+		//TODO: Center text
+		sftd_draw_text(font.font, x, (y + (h/2 - size/2)),  RGBA8(0xFF, 0xFF, 0xFF, 0xFF), size, content.c_str());
 	}

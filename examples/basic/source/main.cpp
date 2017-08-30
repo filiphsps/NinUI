@@ -5,10 +5,10 @@
 	  |__ <| |  | |\___ \______| |  | | | |  
 	  ___) | |__| |____) |     | |__| |_| |_ 
 	 |____/|_____/|_____/       \____/|_____|
-				EXAMPLE 1 "Basic"
-			 © Filiph Sandström 2015
-
-		   SEE "LICENSE" FOR THE LICENSE
+	 
+	  EXAMPLE 1 "Basic"
+	  © Filiph Sandström 2015-2017
+	  SEE "LICENSE" FOR THE LICENSE
 */
 
 //Required classes for 3DS_UI
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
+
+//Button clicks
+int clicks = 0;
 
 int main () {
 	//Initialize services
@@ -40,10 +43,18 @@ int main () {
 	//Create a new uiTextBlock
 	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
 	textBlock->configure({ 0, 0 }, OpenSansFont, 22, "FPS: ", Colors::Black);
+
+	//Create a new uiButton
+	uiButton* button = new uiButton("Button1");
+	button->configure({ 50, 50 }, 120, 35, OpenSansFont, 16, "A Button", Colors::Red);
+	button->onClick([=](){
+		button->configure({ 50, 50 }, 120, 35, OpenSansFont, 16, std::to_string(++clicks), Colors::Purple);
+	});
 	
 	//Adds all the elements to the selected windows
 	windowTop->addElement(rect);
 	windowBottom->addElement(textBlock);
+	windowBottom->addElement(button);
 
 	float x = 0; bool x_back = true;
 	while (aptMainLoop()) {
@@ -53,14 +64,15 @@ int main () {
 		if (kDown & KEY_A)
 			break;
 
-		//Set textBlock content to FPS
+		//Set textBlock content to the FPS
 		textBlock->setContent("FPS: " + std::to_string((s16)sf2d_get_fps()));
 
-		if (x_back == false && x >= (SCREEN_TOP_WIDTH - 50))
+		//Make the rectangle bounce and change color
+		if (x_back == false && x >= 255)
 			x_back = true;
 		else if (x_back == true && x <= 0)
 			x_back = false;
-		rect->configure({x_back ? --x : ++x, x/2}, 72, 72, {x, 255 - x, x, 0xFF});
+		rect->configure({x_back ? --x : ++x, x/2}, 72, 72, {x, 255 - x, 255 - x, 0xFF});
 
 		//Renders both windows
 		windowTop->render();
@@ -73,6 +85,7 @@ int main () {
 	//Removes the elements
 	windowTop->removeElement("Rect1");
 	windowBottom->removeElement("TextBlock1");
+	windowBottom->removeElement("Button1");
 
 	//Deinitialize 3DS_UI
 	uiExit();

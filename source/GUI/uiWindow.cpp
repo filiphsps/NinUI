@@ -21,22 +21,24 @@ void uiWindow::render() {
 	if (settings.isTopScreen) {
 		//TODO
 	} else {
-		//touchPosition tp;
+		touchPosition tp;
 
-		//hidScanInput();
-		//hidTouchRead(&tp);
-		//u32 kDown = hidKeysDown();
+		hidScanInput();
+		hidTouchRead(&tp);
+		u32 kDown = hidKeysDown();
 
-		/*if (kDown & KEY_TOUCH) {
+		if (kDown & KEY_TOUCH) {
+			auto x = tp.px;
+			auto y = tp.py;
+
 			for (auto element : elements) {
-				auto x = tp.px;
-				auto y = 240 - tp.py;
-
-				if (x >= element->x && x <= (x + element->w))
-					if (y >= element->y && y <= (y + element->h))
-						element->e_onclick();
+				if (x >= element->x && x <= (element->x + element->w))
+					if (y >= element->y && y <= (element->y + element->h)) {
+						if (element->e_onclick != NULL)
+							element->e_onclick();
+					}
 			}
-		}*/
+		}
 	}
 	
 	//Render all the elements
@@ -50,6 +52,11 @@ void uiWindow::render() {
 			case uiElement_Types::Rectangle: {
 				uiRect* rect = (uiRect*)element;
 				rect->render(settings.isTopScreen, isLeft);
+				break;
+			}
+			case uiElement_Types::Button: {
+				uiButton* button = (uiButton*)element;
+				button->render(settings.isTopScreen, isLeft);
 				break;
 			}
 			default:
