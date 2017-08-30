@@ -83,17 +83,8 @@ struct uiKeyboard {
 	std::vector<uiKey> keys;
 	bool inSpecialMode = false;
 };
-struct uiNavbar {
-	RGB navbarColor = { 52,152,219 };					//The navbar colour								Default = Cyan
-	RGB navbarFontColor = { 255,255,255 };				//The navbar font colour						Default = White
-	std::string header = "";							//The navbar header								Default = ""
-};
 struct uiWindowSettings {
 	bool fullscreen = false;							//True if statusbar should be disabled			Default = false
 	bool isTopScreen = true;							//True if window is placed on the topscreen		Default = true
 	bool is3DEnabled = true;							//True if the window supports 3D				Default = true
-
-														//Colors
-	RGB statusbarColor = { 41,128,185 };				//The statusbar colour.							Default = Dark Cyan
-	RGB appbarColor = { 33,33,33 };						//The appbar colour.							Default = Dark Grey
 };

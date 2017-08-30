@@ -52,5 +52,3 @@ void uiFinishRendering();
 */
 void uiSetBackgroundColor(RGB color);
 void uiSet3D(bool enable);
-
-sf2d_texture* uiCreateTexture(u8* texture, std::string encoding, s16 w, s16 h);

@@ -10,7 +10,7 @@
 
 /* uiElement */
 	uiElement::uiElement() {
-		type = null;
+		type = uiElement_Types::null;
 	}
 	void uiElement::render(bool isTopScreen, bool isLeft) {
 		//Override me
@@ -22,30 +22,38 @@
 		x = cords.x;
 		y = cords.y;
 	}
+	void uiElement::setSize(Vector2 size) {
+		w = size.x;
+		h = size.y;
+	}
 	void uiElement::onClick(void (*ccallback)()) {
 		e_onclick = ccallback;
 	}
 
 /* uiTextBlock */
 	uiTextBlock::uiTextBlock(std::string cname) {
-		type = TextBlock;
+		type = uiElement_Types::TextBlock;
 		name = cname;
 	}
-	void uiTextBlock::configure(Vector2 cords, uiTtfFont cfont, std::string text, RGB c) {
+	void uiTextBlock::configure(Vector2 cords, uiTtfFont cfont, s16 csize, std::string text, RGB c) {
 		x = cords.x;
 		y = cords.y;
 		font = cfont;
+		size = csize;
 		content = text;
 		color = c;
 	}
+	void uiTextBlock::setContent(std::string text) {
+		content = text;
+	}
 	void uiTextBlock::render(bool isTopScreen, bool isLeft) {
-		renderTtfText(content, { (float)x,(float)y }, font, color);
+		sftd_draw_text(font.font, x, y,  RGBA8(color.R, color.G, color.B, color.A), size, content.c_str());
 	}
 
 /* uiRect */
 	uiRect::uiRect(std::string cname) {
 		name = cname;
-		type = Rectangle;
+		type = uiElement_Types::Rectangle;
 	}
 	void uiRect::configure(Vector2 cords, s16 ww, s16 hh, RGB color) {
 		x = cords.x;
@@ -55,7 +63,7 @@
 		BackgroundColor = color;
 	}
 	void uiRect::render(bool isTopScreen, bool isLeft) {
-		sf2d_draw_rectangle(x, y, w, h, RGBA8(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, 0xFF));
+		sf2d_draw_rectangle(x, y, w, h, RGBA8(BackgroundColor.R, BackgroundColor.G, BackgroundColor.B, BackgroundColor.A));
 	}
 
 /* uiImage */

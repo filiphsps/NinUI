@@ -34,23 +34,12 @@ RGB convertHexToRGB(int hexValue) {
 	return color;
 }
 void uiFinishRendering() {
-	
+	sf2d_end_render();
 }
 
 void uiSetBackgroundColor(RGB color) {
-	sf2d_set_clear_color(RGBA8(color.R, color.G, color.B, 0xFF));
+	sf2d_set_clear_color(RGBA8(color.R, color.G, color.B, color.A));
 }
 void uiSet3D(bool enable) {
 	sf2d_set_3D(enable);
-}
-
-sf2d_texture* uiCreateTexture(u8* texture, std::string encoding, s16 w, s16 h) {
-	sf2d_texture* tex = sf2d_create_texture(w, h, TEXFMT_RGBA8, SF2D_PLACE_RAM);
-	if (encoding == "RAW") {
-		sf2d_fill_texture_from_RGBA8(tex, texture, w, h);
-		sf2d_texture_tile32(tex);
-	} else if (encoding == "PNG") {
-
-	}
-	return tex;
 }

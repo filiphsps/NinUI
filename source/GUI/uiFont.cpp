@@ -27,6 +27,3 @@ uiTtfFont readTtfFont(u8* fontData, u32 fontSize) {
 	font.font = sftd_load_font_mem(fontData, font.ttfSize);
 	return font;
 }
-void renderTtfText(std::string text, Vector2 cords, uiTtfFont &font, RGB color) { //Wrapper of a wrapper
-	sftd_draw_text(font.font, cords.x, cords.y, RGBA8(color.R, color.G, color.B, color.A), font.fontSize, text.c_str());
-}

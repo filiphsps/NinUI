@@ -20,27 +20,15 @@
 #include <sftd.h>
 #include "3DS_UI/defines.h"
 
-/**
-* @brief bitmapfont struct
-*/
-struct uiBitmapFont {
-	sf2d_texture* bitmap;
-	s16 cellSize, offset, gridSize;
-	float scale;
-	RGB color;
-};
-
 
 /**
 * @brief bitmapfont struct
 */
 struct uiTtfFont {
 	sftd_font* font;
-	s16 fontSize; //The font size
 	u32 ttfSize; //Size of the ttf file
 };
 
 extern uiTtfFont OpenSansFont;
 
 uiTtfFont readTtfFont(u8* fontData, u32 fontSize);
-void renderTtfText(std::string text, Vector2 cords, uiTtfFont &font, RGB color);

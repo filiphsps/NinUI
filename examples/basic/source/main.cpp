@@ -16,7 +16,6 @@
 #include <iostream>
 #include <vector>
 #include <3DS_UI.h>
-#include "OpenSans_Regular_ttf.h"
 
 int main () {
 	//Initialize services
@@ -39,22 +38,29 @@ int main () {
 	rect->configure({ 50, 50 }, 72, 72, Colors::Crimson);
 
 	//Create a new uiTextBlock
-	//uiTtfFont Font = readTtfFont((u8*)OpenSans_Regular_ttf, OpenSans_Regular_ttf_size);
-
 	uiTextBlock* textBlock = new uiTextBlock("TextBlock1");
-	//textBlock->configure({ 0, 10 }, Font, "Hello World!", Colors::Black);
+	textBlock->configure({ 0, 0 }, OpenSansFont, 22, "FPS: ", Colors::Black);
 	
 	//Adds all the elements to the selected windows
 	windowTop->addElement(rect);
-	windowTop->addElement(textBlock);
+	windowBottom->addElement(textBlock);
 
-	while (aptMainLoop())
-	{
+	float x = 0; bool x_back = true;
+	while (aptMainLoop()) {
 		//Return to the launcher if we press 'A'
 		hidScanInput();
 		u32 kDown = hidKeysDown();
 		if (kDown & KEY_A)
 			break;
+
+		//Set textBlock content to FPS
+		textBlock->setContent("FPS: " + std::to_string((s16)sf2d_get_fps()));
+
+		if (x_back == false && x >= (SCREEN_TOP_WIDTH - 50))
+			x_back = true;
+		else if (x_back == true && x <= 0)
+			x_back = false;
+		rect->configure({x_back ? --x : ++x, x/2}, 72, 72, {x, 255 - x, x, 0xFF});
 
 		//Renders both windows
 		windowTop->render();

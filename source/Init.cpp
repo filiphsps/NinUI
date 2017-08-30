@@ -10,16 +10,19 @@ uiTtfFont OpenSansFont;
 Result uiInit(std::string appname) {
 	//Let's start by initing sf2dlib
 	sf2d_init();
+
 	//Then, lets init the font system
 	sftd_init();
+
 	//And of course limit the framerate
 	sf2d_set_fps(60);
+
 	//After that, let's set the background color to white
-	uiSetBackgroundColor({255,255,255});
+	uiSetBackgroundColor({255,255,255,255});
 
 	//Init fonts
 	OpenSansFont = readTtfFont((u8*)OpenSans_Regular_ttf, OpenSans_Regular_ttf_size);
-	OpenSansFont.fontSize = 28;
+	
 	return 0;
 }
 Result uiExit() {

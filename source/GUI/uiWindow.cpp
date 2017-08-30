@@ -42,12 +42,12 @@ void uiWindow::render() {
 	//Render all the elements
 	for (auto element : elements) {
 		switch (element->type) {
-			case TextBlock: {
+			case uiElement_Types::TextBlock: {
 				uiTextBlock* textBlock = (uiTextBlock*)element;
 				textBlock->render(settings.isTopScreen, isLeft);
 				break;
 			}
-			case Rectangle: {
+			case uiElement_Types::Rectangle: {
 				uiRect* rect = (uiRect*)element;
 				rect->render(settings.isTopScreen, isLeft);
 				break;
@@ -56,8 +56,6 @@ void uiWindow::render() {
 				break;
 		}
 	}
-
-	sf2d_end_render();
 }
 
 void uiWindow::addElement(uiElement* element) {

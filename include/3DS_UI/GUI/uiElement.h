@@ -37,6 +37,12 @@ class uiElement {
 		void setPosition(Vector2 cords);
 
 		/**
+		* @brief sets the size of the element
+		* @param size the size
+		*/
+		void setSize(Vector2 size);
+
+		/**
 		* @brief sets the callback for onclick
 		* @param callback a pointer to the callback function
 		*/
@@ -60,6 +66,8 @@ class uiTextBlock : public uiElement {
 		std::string content;
 		uiTtfFont font;
 		RGB color;
+		u16 size;
+
 	public:
 
 		/**
@@ -84,7 +92,9 @@ class uiTextBlock : public uiElement {
 		*  textBlock.configure(0, 0, myFont, "Hello World!");
 		* @endcode
 		*/
-		void configure(Vector2 cords, uiTtfFont font, std::string text, RGB c);
+		void configure(Vector2 cords, uiTtfFont font, s16 size, std::string text, RGB c);
+
+		void setContent(std::string content);
 
 		/**
 		* @brief used by a uiWindow to render the element
