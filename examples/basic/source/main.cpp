@@ -30,7 +30,7 @@ int main () {
 	uiInit("Example Application 1");
 
 	//Enable 3D
-	uiSet3D(true);
+	uiSet3D(false);
 
 	//Creates two windows, one for the upper screen and one for the bottom screen
 	uiWindow* windowTop = new uiWindow(true);
@@ -46,9 +46,10 @@ int main () {
 
 	//Create a new uiButton
 	uiButton* button = new uiButton("Button1");
-	button->configure({ 50, 50 }, 120, 35, OpenSansFont, 16, "A Button", Colors::Red);
+	button->configure({ 20, SCREEN_BOTTOM_HEIGHT - (35 + 20) }, SCREEN_BOTTOM_WIDTH - 40, 35, OpenSansFont, 16, "A button will center the text", Colors::Red);
 	button->onClick([=](){
-		button->configure({ 50, 50 }, 120, 35, OpenSansFont, 16, std::to_string(++clicks), Colors::Purple);
+		button->setColor(Colors::Purple);
+		button->setContent(std::to_string(++clicks));
 	});
 	
 	//Adds all the elements to the selected windows
@@ -56,7 +57,7 @@ int main () {
 	windowBottom->addElement(textBlock);
 	windowBottom->addElement(button);
 
-	float x = 0; bool x_back = true;
+	float x = 65; bool x_back = true;
 	while (aptMainLoop()) {
 		//Return to the launcher if we press 'A'
 		hidScanInput();
@@ -70,9 +71,9 @@ int main () {
 		//Make the rectangle bounce and change color
 		if (x_back == false && x >= 255)
 			x_back = true;
-		else if (x_back == true && x <= 0)
+		else if (x_back == true && x <= 65)
 			x_back = false;
-		rect->configure({x_back ? --x : ++x, x/2}, 72, 72, {x, 255 - x, 255 - x, 0xFF});
+		rect->configure({x_back ? --x : ++x, x/2}, 72, 72, {(u8)x, (u8)(255 - x), (u8)(255 - x), 0xFF});
 
 		//Render both windows
 		windowTop->render();

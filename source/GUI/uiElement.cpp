@@ -81,8 +81,15 @@
 		content = text;
 		color = c;
 	}
+	void uiButton::setContent(std::string text) {
+		content = text;
+	}
 	void uiButton::render(bool isTopScreen, bool isLeft) {
 		sf2d_draw_rectangle(x, y, w, h, RGBA8(color.R, color.G, color.B, color.A));
+
 		//TODO: Center text
-		sftd_draw_text(font.font, x, (y + (h/2 - size/2)),  RGBA8(0xFF, 0xFF, 0xFF, 0xFF), size, content.c_str());
+		//var x = w-textwidth/2
+
+		int tx = x + (w - sftd_get_text_width(font.font, size, content.c_str())) / 2;
+		sftd_draw_text(font.font, tx, (y + (h/2 - size/2)),  RGBA8(0xFF, 0xFF, 0xFF, 0xFF), size, content.c_str());
 	}

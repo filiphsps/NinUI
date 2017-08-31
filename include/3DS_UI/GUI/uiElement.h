@@ -158,6 +158,8 @@ class uiButton : public uiElement {
 		uiButton(std::string cname);
 
 		void configure(Vector2 cords, s16 w, s16 h, uiTtfFont cfont, s16 size, std::string text, RGB c);
+
+		void setContent(std::string content);
 		
 		/**
 		* @brief used by a uiWindow to render the element
