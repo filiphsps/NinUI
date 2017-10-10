@@ -1,5 +1,5 @@
-# 3DS-UI
-An opensource GPU driven graphical-user-interface library/framework for the Nintendo 3DS
+# NinUI
+An opensource GPU driven graphical-user-interface library/framework for the **Nintendo 3DS** (& in the future **Nintendo Switch**)
 
 ![](http://i.imgur.com/vZhM9Ff.png?1)
 
